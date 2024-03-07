@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://gist.github.com/lvaylet/738166c75d30dcb43eb1a3b2e0634cc6#file-arch_linux_xorg_window_manager-md
 USER=epvre
 
 #Packs
