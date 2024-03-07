@@ -1,1 +1,5 @@
+#!/bin/bash
+USER=epvre
 
+#Packs
+sudo pacman -S xf86-video-fbdev xorg xorg-xinit nitrogen picom xterm firefox
