@@ -36,3 +36,6 @@ USER=epvre
 #EOF
 
 #https://www.reddit.com/r/unixporn/comments/n1z01n/dwm_st_dmenu_dwmblocks_my_first_try_on_doing_this/
+git clone https://github.com/onur-ozkan/dotfiles
+cd dotfiles
+./install
