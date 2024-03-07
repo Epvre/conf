@@ -1,1 +1,15 @@
+#Windows manager
+  sudo pacman -S --noconfirm --needed bspwm sxhkd xdo xorg-twm
+#Config
+  sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc /home/$USER/.config/bspwm/bspwmrc -v
+  sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc /home/$USER/.config/sxhkd/sxhkdrc -v
+  sudo echo "expec bspwm" > /home/$USER/.xinitrc
+  systemctl enable sxhkd
 
+#Terminal
+  sudo pacman -S --noconfirm --needed xterm qterminal kitty alacritty
+exit
+#Soft
+  sudo pacman -S --noconfirm --needed pulseaudio pavucontrol viewnior nemo htop cmus neofetch scrot ranger neovim mpv polybar picom rofi
+conky ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick bspwm_rounded mpd ncmpcpp gnu-free-fonts ttf-dejavu
+  
