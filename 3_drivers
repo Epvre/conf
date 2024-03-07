@@ -10,15 +10,21 @@
 #Xserver
   sudo pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glaex2 xterm xorg-xclock xterm xorg-twm
 
-#Nvidia debug
+#Nvidia debug1
   FILE="/etc/bumblebee/xorg.conf.nvidia"
-  N_LINE1="Option "HardDPMS "false"
-End Section" 
+  N_TEXT="Option \"HardDPMS \"false\"
+  End Section"
+
   START_LINE=$(grep -n "Section \"Device\"" $FILE | cut -d: -f1)
   END_LINE=$(grep -n "EndSection" $FILE | awk -F: -v start=$START_LINE '$1 > start {print $1; exit}')
   sed -i "${END_LINE}a\  
-  $N_LINE1\
-  $N_LINE2" $FILE
+  $N_TEXT" $FILE
+
+#Nvidia debug 2
+#pacman -S base-devel
+#git clone https://aur.archlinux.org/yay-git.git
+#cd yay-git
+#makepkg -si
 
 #Start X
   cp /etc/X11/xinit/xinitrc ~/.xinitrc
