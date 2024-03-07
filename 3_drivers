@@ -21,10 +21,19 @@
   $N_TEXT" $FILE
 
 #Nvidia debug 2
-#pacman -S base-devel
-#git clone https://aur.archlinux.org/yay-git.git
-#cd yay-git
-#makepkg -si
+  #pacman -S base-devel
+  #git clone https://aur.archlinux.org/yay-git.git
+  #cd yay-git
+  #makepkg -si
+  #yay -S nvidia-xrun
+  #$FILE=/etc/X11/nvidia-xorg.conf.d/30-nvidia.conf
+  #N_TEXT="Identifier \"nvidiagpu1\"
+  #    Driver \"nvidia\"
+  #    BusID \"lspci | grep -i nvidia | awk '{print $1}'\"
+  #EndSection"
+  #END_LINE=$(grep -n "EndSection" $FILE | awk -F: -v start=$START_LINE '$1 > start {print $1; exit}')
+  #sed -i "${END_LINE}a\  
+  #$N_TEXT" $FILE
 
 #Start X
   cp /etc/X11/xinit/xinitrc ~/.xinitrc
