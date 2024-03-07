@@ -1,0 +1,5 @@
+#Add user
+  USER=epvre
+  sudo useradd -m -G root $USER
+  passwd $USER
+  sudo sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
