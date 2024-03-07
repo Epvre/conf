@@ -12,16 +12,13 @@
 
 #Nvidia debug
   FILE="/etc/bumblebee/xorg.conf.nvidia"
-  N_LINE1=Option "HardDPMS "false"
-  N_LINE2=End Section
+  N_LINE1="Option "HardDPMS "false"
+End Section" 
   START_LINE=$(grep -n "Section \"Device\"" $FILE | cut -d: -f1)
   END_LINE=$(grep -n "EndSection" $FILE | awk -F: -v start=$START_LINE '$1 > start {print $1; exit}')
   sed -i "${END_LINE}a\  
   $N_LINE1\
   $N_LINE2" $FILE
-
-
-
 
 #Start X
   cp /etc/X11/xinit/xinitrc ~/.xinitrc
