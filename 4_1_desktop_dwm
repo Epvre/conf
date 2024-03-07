@@ -2,4 +2,37 @@
 USER=epvre
 
 #Packs
-sudo pacman -S xf86-video-fbdev xorg xorg-xinit nitrogen picom xterm 
+  sudo pacman -S xf86-video-fbdev xorg xorg-xinit nitrogen picom xterm 
+  yay -S {dwm,st,dmenu}-distrotube-git nerd-fonts-mononoki
+  
+  tee /etc/pacman.conf<<EOF
+  [dt-arch-repo]
+  SigLevel = Optional DatabaseOptional
+  Server = https://gitlab.com/dwt1/$repo/-/raw/master/$arch
+  EOF
+  
+  sudo pacman -Syyu
+  sudo pacman -S {dwm,st,dmenu}-distrotube-git
+  git clone https://gitlab.com/dwt1/wallpapers.git
+
+#Screen
+  xrandr
+  xrandr -s NNNNxNNNN
+
+#Xinit
+  cp /etc/X11/xinit/xinitrc ~/.xinitrc
+  tee ~/.xinitrc<EOF
+  nitrogen --restore &
+  picom &
+  xrandr -s  &
+  exec dwm
+  EOF
+
+#Start
+  startx
+
+#tee ~/.bash_profile << EOF
+#[[ $( fgconsole 2> /dev/null )  == 1 ]] &&  exec startx -- vt1
+#EOF
+
+#https://www.reddit.com/r/unixporn/comments/n1z01n/dwm_st_dmenu_dwmblocks_my_first_try_on_doing_this/
