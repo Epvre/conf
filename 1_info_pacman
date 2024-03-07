@@ -1,2 +1,3 @@
 #!/bin/bash 
+pacman -Rscun vi vim 
 pacman -Qq > pacman_mini.txt
