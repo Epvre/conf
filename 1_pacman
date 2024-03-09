@@ -1,7 +1,10 @@
 #!/bin/bash 
+sudo rm -Rv  ~/.bash_history
+
 # CLEAR unnecessary
 L_MIN=list_pacman_mini.txt
 L_START=list_pacman_start.txt
+
 sudo pacman -Rscun vi vim --noconfirm --verbose 
 
 # FREEZE start config
