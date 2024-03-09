@@ -14,7 +14,6 @@ LINK=https://aur.archlinux.org/yay.git
 NAME=$(basename "$LINK" | sed 's/\.git$//')
 
 pacman -S base-devel --noconfirm --needed
-cd ~/git
-git clone $LINK
-cd $NAME
+git clone $LINK ~/git
+cd ~/git.$NAME
 makepkg -si
