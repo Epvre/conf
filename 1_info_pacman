@@ -1,6 +1,6 @@
 #!/bin/bash 
 # CLEAR unnecessary
-sudo pacman -Rscun vi vim 
+sudo pacman -Rscun vi vim --noconfirm --needed --verbose 
 
 # FREEZE start config
 > list_pacman_mini.txt
