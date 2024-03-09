@@ -1,8 +1,8 @@
 #!/bin/bash
 #Drivers Nvidia
-  sudo pacman -S --noconfirm --needed nvidia mesa lib32-virtualgl lib32-nvidia-utils primus bumblebee
+  sudo pacman -S --noconfirm --needed nvidia mesa lib32-virtualgl lib32-nvidia-utils primus bumblebee acpi_call
   sudo gpasswd -a $USER bumblebee 
-  sudo pacman -S acpi_call
+ 
   modprobe acpi_call
   /usr/share/acpi_call/examples/turn_off_gpu.sh
   /etc/modules-load.d/acpi_call.conf
