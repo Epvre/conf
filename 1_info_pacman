@@ -7,7 +7,7 @@ sudo pacman -Rscun vi vim --noconfirm --needed --verbose
 sudo pacman -Qqv > list_pacman_mini.txt --verbose 
 
 # INSTALL ALL PACKAGES
-sudo pacman -S  list_pacman_start.txt --noconfirm --needed --verbose 
+sudo pacman -S list_pacman_start.txt --noconfirm --needed --verbose 
 
 # YAY 
 LINK=https://aur.archlinux.org/yay.git
