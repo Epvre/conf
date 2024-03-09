@@ -3,8 +3,8 @@
 sudo pacman -Rscun vi vim --noconfirm --verbose 
 
 # FREEZE start config
-> list_pacman_mini.txt
-sudo pacman -Qqv > list_pacman_mini.txt --verbose 
+>list_pacman_mini.txt
+sudo pacman -Qqv >list_pacman_mini.txt --verbose 
 
 # INSTALL ALL PACKAGES
 sudo pacman -S --needed $(<list_pacman_start.txt) --noconfirm --verbose 
