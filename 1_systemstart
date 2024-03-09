@@ -1,4 +1,8 @@
 #!/bin/bash 
+  tee /boot/loader/loader.conf < EOF
+  timeout=0
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash pci=noaer"
+  EOF
 sudo rm -Rv  ~/.bash_history
 systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
@@ -9,14 +13,15 @@ systemctl stop systemd-journald.socket
 systemctl disable systemd-journald-dev-log.socket
 systemctl stop systemd-journald-dev-log.socket
 
-tee /etc/sysctl.d/50-coredump.conf<EOF
-kernel.core_pattern=/dev/null
-EOF
-sysctl -p /etc/sysctl.d/50-coredump.conf
-
-sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
-sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
-rm -Rv /var/lib/systemd/coredump/*
+#COREDUMP off
+  tee /etc/sysctl.d/50-coredump.conf<EOF
+  kernel.core_pattern=/dev/null
+  EOF
+  sysctl -p /etc/sysctl.d/50-coredump.conf
+  
+  sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
+  sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
+  rm -Rv /var/lib/systemd/coredump/*
 
 # CLEAR unnecessary
 L_MIN=list_pacman_mini.txt
