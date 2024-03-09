@@ -18,6 +18,9 @@
 
 
 sudo rm -Rv  ~/.bash_history
+systemd-journal-flush.service 
+
+
 systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
 
