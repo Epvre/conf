@@ -10,8 +10,11 @@
  
   #tee /etc/module/start.conf
   #pcie_aspm=off
-  
 
+  # one more variant
+  tee /etc/modprobe.d/iwlwifi.conf << EOF
+  options iwlmvm power_scheme=1
+  EOF
 
 
 sudo rm -Rv  ~/.bash_history
