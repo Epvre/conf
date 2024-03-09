@@ -1,4 +1,7 @@
 #!/bin/bash 
+# CLEAR unnecessary
+pacman -Rscun vi vim 
+
 # FREEZE START CONFIG
 pacman -Rscun vi vim 
 > list_pacman_mini.txt
