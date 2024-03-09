@@ -1,5 +1,5 @@
 #!/bin/bash
-#Drivers Nvidia
+#NVIDIA
   sudo pacman -S --noconfirm --needed nvidia mesa lib32-virtualgl lib32-nvidia-utils primus bumblebee acpi_call
   sudo gpasswd -a $USER bumblebee 
  
@@ -39,4 +39,7 @@
   cp /etc/X11/xinit/xinitrc ~/.xinitrc
   startx
   glaex2 
-  
+
+
+#KVM VD-t
+#https://www.linux-kvm.org/page/How_to_assign_devices_with_VT-d_in_KVM
