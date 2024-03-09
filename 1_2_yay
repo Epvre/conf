@@ -3,8 +3,8 @@
 LINK=https://aur.archlinux.org/yay.git
 NAME=$(basename "$LINK" | sed 's/\.git$//')
 
-rm -Rv ~/git/.git
+rm -Rv .git
 mkdir ~/git/$NAME
-sudo git clone $LINK ~/git/$NAME
+git clone $LINK ~/git/$NAME
 cd ~/git/$NAME
 makepkg -si
