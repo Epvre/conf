@@ -9,6 +9,11 @@ systemctl stop systemd-journald.socket
 systemctl disable systemd-journald-dev-log.socket
 systemctl stop systemd-journald-dev-log.socket
 
+tee /etc/sysctl.d/50-coredump.conf<EOF
+kernel.core_pattern=/dev/null
+EOF
+sysctl -p /etc/sysctl.d/50-coredump.conf
+
 # CLEAR unnecessary
 L_MIN=list_pacman_mini.txt
 L_START=list_pacman_start.txt
