@@ -1,13 +1,15 @@
 #!/bin/bash 
 # CLEAR unnecessary
+L_MIN=list_pacman_mini.txt
+L_START=list_pacman_start.txt
 sudo pacman -Rscun vi vim --noconfirm --verbose 
 
 # FREEZE start config
->list_pacman_mini.txt
-sudo pacman -Qq >list_pacman_mini.txt  
+> $OUT
+pacman -Qq >$L_MIN
 
 # INSTALL ALL PACKAGES
-sudo pacman -S --needed $(<list_pacman_start.txt) --noconfirm --verbose 
+sudo pacman -S --needed $(<$L_START) --noconfirm --verbose 
 
 
 # YAY 
