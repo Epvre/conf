@@ -16,7 +16,7 @@ sysctl -p /etc/sysctl.d/50-coredump.conf
 
 sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
 sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
-
+rm -Rv /var/lib/systemd/coredump/*
 
 # CLEAR unnecessary
 L_MIN=list_pacman_mini.txt
