@@ -3,7 +3,6 @@
 sudo pacman -Rscun vi vim 
 
 # FREEZE start config
-
 > list_pacman_mini.txt
 sudo pacman -Qqv > list_pacman_mini.txt
 
