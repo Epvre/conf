@@ -1,7 +1,7 @@
 #!/bin/bash 
   tee /boot/loader/loader.conf < EOF
   timeout=0
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash pci=noaer pcie_aspm=off"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash pci=nomsi pcie_aspm=off "
   #GRUB_CMDLINE_LINUX_DEFAULT=“quiet udev.log_priority=3 pci=nomsi”
   EOF
   tee /etc/default/grub <EOF
