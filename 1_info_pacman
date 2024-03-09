@@ -1,3 +1,13 @@
 #!/bin/bash 
+# FREEZE START CONFIG
 pacman -Rscun vi vim 
 pacman -Qq > pacman_mini.txt
+
+# YAY 
+LINK=https://aur.archlinux.org/yay.git
+NAME=$(basename "$LINK" | sed 's/\.git$//')
+
+pacman -S base-devel
+git clone $LINK
+cd $NAME
+makepkg -si
