@@ -7,7 +7,6 @@ sudo pacman -Rscun vi vim --noconfirm --verbose
 sudo pacman -Qqv > list_pacman_mini.txt --verbose 
 
 # INSTALL ALL PACKAGES
-sudo pacman -S list_pacman_start.txt --noconfirm --verbose 
 sudo pacman -S --needed $(<list_pacman_start.txt) --noconfirm --verbose 
 
 
