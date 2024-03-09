@@ -4,4 +4,7 @@ bash 2_1_1_user_creation
 bash 2_2_internet_politics
 bash 2_3_local_politics
 bash 2_4_disk_enckrypt 
+/etc/default/grub
+/etc/default/grub
+GRUB_ENABLE_CRYPTODISK=y
 bash 2_5
