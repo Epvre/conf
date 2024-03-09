@@ -4,16 +4,16 @@ sudo pacman -Rscun vi vim
 
 # FREEZE start config
 > list_pacman_mini.txt
-sudo pacman -Qqv > list_pacman_mini.txt
+sudo pacman -Qqv > list_pacman_mini.txt --verbose 
 
 # INSTALL ALL PACKAGES
-sudo pacman -S  --noconfirm --needed list_pacman_start.txt
+sudo pacman -S  list_pacman_start.txt --noconfirm --needed --verbose 
 
 # YAY 
 LINK=https://aur.archlinux.org/yay.git
 NAME=$(basename "$LINK" | sed 's/\.git$//')
 
-pacman -S base-devel --noconfirm --needed
+pacman -S base-devel --noconfirm --needed --verbose 
 git clone $LINK ~/git
 cd ~/git.$NAME
 makepkg -si
