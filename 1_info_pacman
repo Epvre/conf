@@ -1,6 +1,7 @@
 #!/bin/bash 
 # FREEZE START CONFIG
 pacman -Rscun vi vim 
+> list_pacman_mini.txt
 pacman -Qq > list_pacman_mini.txt
 
 # INSTALL ALL PACKAGES
