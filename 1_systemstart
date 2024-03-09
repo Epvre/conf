@@ -5,7 +5,7 @@
   #GRUB_CMDLINE_LINUX_DEFAULT=“quiet udev.log_priority=3 pci=nomsi”
   EOF
   tee /etc/default/grub <EOF
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash pci=noaer pcie_aspm=off"
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash pci=nomsi pcie_aspm=off "
 sudo rm -Rv  ~/.bash_history
 systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
