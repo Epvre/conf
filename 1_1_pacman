@@ -9,4 +9,13 @@ sudo pacman -Qqv >list_pacman_mini.txt --verbose
 # INSTALL ALL PACKAGES
 sudo pacman -S --needed $(<list_pacman_start.txt) --noconfirm --verbose 
 
- 
+
+# YAY 
+LINK=https://aur.archlinux.org/yay.git
+NAME=$(basename "$LINK" | sed 's/\.git$//')
+
+sudo rm -Rv  ~/git/.git
+mkdir ~/git/$NAME
+git clone $LINK ~/git/$NAME
+cd ~/git/$NAME
+makepkg -si
