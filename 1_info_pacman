@@ -15,5 +15,5 @@ LINK=https://aur.archlinux.org/yay.git
 NAME=$(basename "$LINK" | sed 's/\.git$//')
 
 git clone $LINK ~/git
-cd ~/git.$NAME
+cd ~/git/$NAME
 makepkg -si
