@@ -3,4 +3,6 @@ base-devel
 git
 nano
 nvidia
+mesa
+
 
