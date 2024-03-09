@@ -1,5 +1,11 @@
 #!/bin/bash 
 sudo rm -Rv  ~/.bash_history
+systemctl desible systemd-journald
+systemctl stop systemd-journald
+
+systemctl desible systemd-journald.socket
+systemctl stop systemd-journald.socket
+
 
 # CLEAR unnecessary
 L_MIN=list_pacman_mini.txt
