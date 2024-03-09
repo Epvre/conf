@@ -19,3 +19,4 @@ mkdir ~/git/$NAME
 git clone $LINK ~/git/$NAME
 cd ~/git/$NAME
 makepkg -si
+yay
