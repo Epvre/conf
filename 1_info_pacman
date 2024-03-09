@@ -13,7 +13,6 @@ sudo pacman -S  list_pacman_start.txt --noconfirm --needed --verbose
 LINK=https://aur.archlinux.org/yay.git
 NAME=$(basename "$LINK" | sed 's/\.git$//')
 
-pacman -S base-devel --noconfirm --needed --verbose 
 git clone $LINK ~/git
 cd ~/git.$NAME
 makepkg -si
