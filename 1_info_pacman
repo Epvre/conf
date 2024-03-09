@@ -1,14 +1,14 @@
 #!/bin/bash 
 # CLEAR unnecessary
-pacman -Rscun vi vim 
+sudo pacman -Rscun vi vim 
 
 # FREEZE start config
-pacman -Rscun vi vim 
+
 > list_pacman_mini.txt
-pacman -Qqv > list_pacman_mini.txt
+sudo pacman -Qqv > list_pacman_mini.txt
 
 # INSTALL ALL PACKAGES
-
+sudo pacman -S  --noconfirm --needed list_pacman_mini.txt
 
 # YAY 
 LINK=https://aur.archlinux.org/yay.git
