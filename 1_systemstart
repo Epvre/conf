@@ -5,11 +5,11 @@
   EOF
   grub-mkconfig -o /boot/loader/loader.conf
 
-  tee /etc/default/grub <EOF
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf pcie_aspm=off "
+  #tee /etc/default/grub <EOF
+  #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf pcie_aspm=off "
  
-  tee /etc/module/start.conf
-  pcie_aspm=off
+  #tee /etc/module/start.conf
+  #pcie_aspm=off
   
 
 
