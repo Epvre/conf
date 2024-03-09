@@ -2,7 +2,7 @@
 # CLEAR unnecessary
 pacman -Rscun vi vim 
 
-# FREEZE START CONFIG
+# FREEZE start config
 pacman -Rscun vi vim 
 > list_pacman_mini.txt
 pacman -Qq > list_pacman_mini.txt
