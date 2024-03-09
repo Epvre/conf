@@ -3,6 +3,9 @@
 pacman -Rscun vi vim 
 pacman -Qq > pacman_mini.txt
 
+# INSTALL ALL PACKAGES
+
+
 # YAY 
 LINK=https://aur.archlinux.org/yay.git
 NAME=$(basename "$LINK" | sed 's/\.git$//')
