@@ -16,7 +16,7 @@ sed -i 's/GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=false/g' $GRUB_CF
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
 >$W_CF
-tee  $W_CF<EOF
+tee  $W_CF < EOF
 options iwlmvm power_scheme=1
 EOF
 
