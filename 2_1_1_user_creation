@@ -3,3 +3,12 @@
   useradd -m -G root $USER
   passwd $USER
   sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
+
+USER=ioann
+useradd $USER
+asswd $USER
+mkdir /home/$USER/bin
+chown $USER /home/$USER/
+chown -R $USER:$USER /home/$USER
+chmod 700 /home/$USER
+sudo chroot /home/$USER/ /bin/bash
