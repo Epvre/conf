@@ -28,14 +28,9 @@ sed -i 's/SystemMaxFileSize=.*/SystemMaxFileSize=250M/g' $J_CG
 
 rm -Rv /var/log/journal/*
 
-
-
 exit
  
-  # one more variant
-  tee /etc/modprobe.d/iwlwifi.conf < EOF
-  options iwlmvm power_scheme=1
-  EOF
+
 
 
 sudo rm -Rv  ~/.bash_history
