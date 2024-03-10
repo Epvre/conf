@@ -48,6 +48,12 @@ systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
 
 
+#COREDUMP off
+tee /etc/sysctl.d/50-coredump.conf<EOF
+kernel.core_pattern=/dev/null
+EOF
+sysctl -p /etc/sysctl.d/50-coredump.conf
+
 exit
 
 
