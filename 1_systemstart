@@ -8,6 +8,7 @@ L_START=list_pacman_start.txt
 pacman -Rs vi vim --noconfirm 
 pacman -Qq >$L_MIN
 pacman -S --needed $(<$L_START) --noconfirm --verbose 
+rm -Rv  ~/.bash_history
 
 #POWER management 
 GRUB_CF=/etc/default/grub
@@ -38,23 +39,18 @@ sed -i 's/SystemMaxFileSize=.*/SystemMaxFileSize=250M/g' $J_CG
 
 rm -Rv /var/log/journal/*
 
-exit
- 
-
-
-
-sudo rm -Rv  ~/.bash_history
-systemd-journal-flush.service 
-
-
+systemctl disable systemd-journal-flush.service 
+systemctl stop systemd-journal-flush.service 
+systemctl disable systemd-journald.socket
+systemctl stop systemd-journald.socket
+systemctl disable systemd-journald-dev-log.socket
+systemctl stop systemd-journald-dev-log.socket
 systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
 
-systemctl disable systemd-journald.socket
-systemctl stop systemd-journald.socket
 
-systemctl disable systemd-journald-dev-log.socket
-systemctl stop systemd-journald-dev-log.socket
+exit
+
 
 #COREDUMP off
   tee /etc/sysctl.d/50-coredump.conf<EOF
