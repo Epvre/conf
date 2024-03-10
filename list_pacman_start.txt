@@ -4,6 +4,6 @@ git
 nano
 nvidia
 mesa
-tlp
+tcl
 
 
