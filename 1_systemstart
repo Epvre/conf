@@ -17,9 +17,8 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash
 sed -i 's/GRUB_TIMEOUT_STYLE=.*/GRUB_TIMEOUT_STYLE=countdown/g' $GRUB_CF
 
 sed -i 's/GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=false/g' $GRUB_CF
-#tee $GRUB_CF<<EOF
-#GRUB_DISABLE_OS_PROBER=false
-#EOF
+#echo "GRUB_DISABLE_OS_PROBER=false" >> $GRUB_CF
+
 
 #sed -i 's/GRUB_ENABLE_CRYPTODISK=.*/GRUB_ENABLE_CRYPTODISK=y/g' $GRUB_CF
 
@@ -49,9 +48,7 @@ systemctl stop systemd-journald.service
 
 
 #COREDUMP off
-tee /etc/sysctl.d/50-coredump.conf<EOF
-kernel.core_pattern=/dev/null
-EOF
+echo "kernel.core_pattern=/dev/null" > /etc/sysctl.d/50-coredump.conf
 sysctl -p /etc/sysctl.d/50-coredump.conf
 
 exit
