@@ -13,6 +13,11 @@ sed -i 's/GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=false/g' $GRUB_CF
 
 #sed -i 's/GRUB_ENABLE_CRYPTODISK=.*/GRUB_ENABLE_CRYPTODISK=y/g' $GRUB_CF
 
+#WIFI power
+tee /etc/modprobe.d/iwlwifi.conf < EOF
+options iwlmvm power_scheme=1
+EOF
+
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #LOG management 
@@ -22,15 +27,13 @@ sed -i 's/SystemKeepFree=.*/SystemKeepFree=125M/g' $J_CG
 sed -i 's/SystemMaxFileSize=.*/SystemMaxFileSize=250M/g' $J_CG
 
 rm -Rv /var/log/journal/*
-exit
-  #tee /etc/default/grub <EOF
-  #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf pcie_aspm=off "
- 
-  #tee /etc/module/start.conf
-  #pcie_aspm=off
 
+
+
+exit
+ 
   # one more variant
-  tee /etc/modprobe.d/iwlwifi.conf << EOF
+  tee /etc/modprobe.d/iwlwifi.conf < EOF
   options iwlmvm power_scheme=1
   EOF
 
