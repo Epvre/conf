@@ -8,6 +8,7 @@ sed -i 's/GRUB_TIMEOUT_STYLE=.*/GRUB_TIMEOUT_STYLE=countdown/g' $GRUB_CF
 #sed -i 's/GRUB_ENABLE_CRYPTODISK=.*/GRUB_ENABLE_CRYPTODISK=y/g' $GRUB_CF
 
 grub-mkconfig -o /boot/grub/grub.cfg
+rm -Rv /var/log/journal/*
 exit
   #tee /etc/default/grub <EOF
   #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf pcie_aspm=off "
