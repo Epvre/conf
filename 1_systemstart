@@ -51,8 +51,12 @@ CORE_CF=/etc/sysctl.d/50-coredump.conf
 echo "kernel.core_pattern=/dev/null" > $CORE_CF
 sysctl -p $CORE_CF
 
-sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
-sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
+CORE_CF=/etc/systemd/coredump.conf
+sed -i 's/Storage=.*/Storage=none/g' $CORE_CF
+
+CORE_CF=/etc/security/limits.conf
+echo "* hard core 0">>$CORE_CF
+
 rm -Rv /var/lib/systemd/coredump/*
 
 exit
