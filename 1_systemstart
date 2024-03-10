@@ -1,4 +1,4 @@
-ir#!/bin/bash 
+#!/bin/bash 
 
 #POWER management 
   GRUB_CF=/boot/grub/grub.cfg
