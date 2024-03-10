@@ -3,7 +3,7 @@
 #POWER management 
 GRUB_CF=/boot/grub/grub.cfg
 #Timeout
-sed -i 's/set timeout=[0-9]*/set timeout=0/g' $ GRUB_CF
+sed -i 's/set timeout=[0-9]*/set timeout=0/g' $GRUB_CF
 
 #Kernel options
 tee $GRUB_CF << EOF
