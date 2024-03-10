@@ -36,9 +36,15 @@ echo "options iwlmvm power_scheme=1" > $W_CF
 #LOG management 
 J_CG=/etc/systemd/journald.conf
 > $J_CG
-sed -i 's/SystemMaxUse=.*/SystemMaxUse=250M/g' $J_CG
-sed -i 's/SystemKeepFree=.*/SystemKeepFree=125M/g' $J_CG
-sed -i 's/SystemMaxFileSize=.*/SystemMaxFileSize=250M/g' $J_CG
+echo "[Journal]
+Storage=none
+SystemMaxUse=250M
+SystemKeepFree=125M
+SystemMaxFileSize=250M
+" >  $J_CG
+#sed -i 's/SystemMaxUse=.*/SystemMaxUse=250M/g' $J_CG
+#sed -i 's/SystemKeepFree=.*/SystemKeepFree=125M/g' $J_CG
+#sed -i 's/SystemMaxFileSize=.*/SystemMaxFileSize=250M/g' $J_CG
 
 systemctl disable systemd-journal*
 systemctl stop systemd-journal*
