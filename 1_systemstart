@@ -45,21 +45,22 @@ systemctl stop systemd-journald-dev-log.socket
 systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
 
-
 #COREDUMP off
 CORE_CF=/etc/sysctl.d/50-coredump.conf
 >$CORE_CF
 echo "kernel.core_pattern=/dev/null" > $CORE_CF
 sysctl -p $CORE_CF
 
+sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
+sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
+rm -Rv /var/lib/systemd/coredump/*
+
 exit
 
 
+
 #COREDUMP off
-  tee /etc/sysctl.d/50-coredump.conf<EOF
-  kernel.core_pattern=/dev/null
-  EOF
-  sysctl -p /etc/sysctl.d/50-coredump.conf
+ 
   
   sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
   sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
