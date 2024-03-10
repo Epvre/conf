@@ -58,7 +58,7 @@ CORE_CF=/etc/systemd/coredump.conf
 sed -i 's/Storage=.*/Storage=none/g' $CORE_CF
 
 CORE_CF=/etc/security/limits.conf
-echo "* hard core 0">>$CORE_CF
+echo "* hard core 0" > $CORE_CF
 
 rm -Rv /var/lib/systemd/coredump/*
 
