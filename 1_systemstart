@@ -45,6 +45,8 @@ systemctl disable systemd-journald.socket
 systemctl stop systemd-journald.socket
 systemctl disable systemd-journald-dev-log.socket
 systemctl stop systemd-journald-dev-log.socket
+systemctl disable systemd-journald*
+systemctl stop systemd-journald*
 systemctl disable systemd-journald.service
 systemctl stop systemd-journald.service
 
