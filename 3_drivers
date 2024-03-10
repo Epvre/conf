@@ -1,5 +1,17 @@
 #!/bin/bash
 #NVIDIA
+  
+# YAY 
+LINK=https://aur.archlinux.org/yay.git
+NAME=$(basename "$LINK" | sed 's/\.git$//')
+
+sudo rm -Rv  ~/git/.git
+mkdir ~/git/$NAME
+git clone $LINK ~/git/$NAME
+cd ~/git/$NAME
+makepkg -si
+yay
+
   sudo pacman -S --noconfirm --needed nvidia mesa lib32-virtualgl lib32-nvidia-utils primus bumblebee acpi_call
   sudo gpasswd -a $USER bumblebee 
  
