@@ -13,21 +13,21 @@ pacman -S --needed $(<$L_START) --noconfirm --verbose
 #POWER management 
 GRUB_CF=/etc/default/grub
 > $GRUB_CF
-sed -i 's/GRUB_TIMEOUT=[0-9]*/GRUB_TIMEOUT=0/g' $GRUB_CF
 echo "GRUB_TIMEOUT=0" >> $GRUB_CF
+echo "GRUB_TIMEOUT_STYLE=countdown" >> $GRUB_CF
+echo "GRUB_DISABLE_OS_PROBER=false" >> $GRUB_CF
+echo "GRUB_ENABLE_CRYPTODISK=y" >> $GRUB_CF
+echo "CONFIG_SECURITY_APPARMOR=y" >> $GRUB_CF
+echo "CONFIG_AUDIT=y" >> $GRUB_CF
 
-PER="quiet pci=nommconf,noaer,nommconf pcie_aspm=off"
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT=$PER/g' $GRUB_CF
+PER="quiet pci=nommconf,noaer,nommconf pcie_aspm=off apparmor=1 security=apparmor"
 echo "GRUB_CMDLINE_LINUX_DEFAULT=$PER" >> $GRUB_CF
 
-sed -i 's/GRUB_TIMEOUT_STYLE=.*/GRUB_TIMEOUT_STYLE=countdown/g' $GRUB_CF
-echo "GRUB_TIMEOUT_STYLE=countdown" >> $GRUB_CF
+PER="landlock,lockdown,yama,integrity,apparmor,bpf"
+echo "CONFIG_LSM=$PER" >> $GRUB_CF
 
-sed -i 's/GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=false/g' $GRUB_CF
-echo "GRUB_DISABLE_OS_PROBER=false" >> $GRUB_CF
-
-#sed -i 's/GRUB_ENABLE_CRYPTODISK=.*/GRUB_ENABLE_CRYPTODISK=y/g' $GRUB_CF
-echo "GRUB_ENABLE_CRYPTODISK=y" >> $GRUB_CF
+aa-enabled
+aa-status
 
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
