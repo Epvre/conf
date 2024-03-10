@@ -1,16 +1,16 @@
 #!/bin/bash 
 
 #POWER management 
-  GRUB_CF=/boot/grub/grub.cfg
+GRUB_CF=/boot/grub/grub.cfg
 #Timeout
-  sed -i 's/set timeout=[0-9]*/set timeout=0/g' $ GRUB_CF
+sed -i 's/set timeout=[0-9]*/set timeout=0/g' $ GRUB_CF
 
 #Kernel options
-  tee $GRUB_CF << EOF
-  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf,noaer,nommconf pcie_aspm=off 
-  EOF
+tee $GRUB_CF << EOF
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf,noaer,nommconf pcie_aspm=off 
+EOF
 
-  grub-mkconfig -o $GRUB_CF
+grub-mkconfig -o $GRUB_CF
 exit
   #tee /etc/default/grub <EOF
   #GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf pcie_aspm=off "
