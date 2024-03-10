@@ -10,7 +10,7 @@ pacman -Qq >$L_MIN
 pacman -S --needed $(<$L_START) --noconfirm --verbose 
 #rm -Rv  ~/.bash_history
 
-#POWER management 
+#GRUB management power and security
 GRUB_CF=/etc/default/grub
 > $GRUB_CF
 echo "GRUB_TIMEOUT=0" >> $GRUB_CF
@@ -28,6 +28,7 @@ echo "CONFIG_LSM=$PER" >> $GRUB_CF
 
 aa-enabled
 aa-status
+swapoff -va
 
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
