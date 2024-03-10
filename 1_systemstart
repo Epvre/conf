@@ -36,7 +36,6 @@ J_CG=/etc/systemd/journald.conf
 sed -i 's/SystemMaxUse=.*/SystemMaxUse=250M/g' $J_CG
 sed -i 's/SystemKeepFree=.*/SystemKeepFree=125M/g' $J_CG
 sed -i 's/SystemMaxFileSize=.*/SystemMaxFileSize=250M/g' $J_CG
-
 rm -Rv /var/log/journal/*
 
 systemctl disable systemd-journal-flush.service 
