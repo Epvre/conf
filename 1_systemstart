@@ -43,7 +43,6 @@ systemctl disable systemd-journal*
 systemctl stop systemd-journal*
 systemctl disable systemd-journald.service
 rm -Rv /var/log/journal/*
-rm -Rv /
 
 #COREDUMP off
 CORE_CF=/etc/sysctl.d/50-coredump.conf
