@@ -30,11 +30,7 @@ echo "GRUB_ENABLE_CRYPTODISK=y" >> $GRUB_CF
 
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
-cat >$W_CF<<EOF
-options iwlmvm power_scheme=1
-EOF
-
-grub-mkconfig -o /boot/grub/grub.cfg
+echo "options iwlmvm power_scheme=1" > $W_CF
 
 #LOG management 
 J_CG=/etc/systemd/journald.conf
@@ -66,4 +62,5 @@ echo "* hard core 0">>$CORE_CF
 
 rm -Rv /var/lib/systemd/coredump/*
 
+grub-mkconfig -o /boot/grub/grub.cfg
 exit
