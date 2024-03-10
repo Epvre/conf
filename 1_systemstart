@@ -16,7 +16,7 @@ GRUB_CF=/etc/default/grub
 sed -i 's/GRUB_TIMEOUT=[0-9]*/GRUB_TIMEOUT=0/g' $GRUB_CF
 echo "GRUB_TIMEOUT=0" >> $GRUB_CF
 
-PER="quiet udev.log_priprity=3 pci=nommconf,noaer,nommconf pcie_aspm=off"
+PER="quiet pci=nommconf,noaer,nommconf pcie_aspm=off"
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash udev.log_priprity=3 pci=nommconf,noaer,nommconf pcie_aspm=off"/g' $GRUB_CF
 echo "GRUB_CMDLINE_LINUX_DEFAULT=$PER" >> $GRUB_CF
 
