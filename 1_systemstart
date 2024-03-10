@@ -60,26 +60,3 @@ echo "* hard core 0">>$CORE_CF
 rm -Rv /var/lib/systemd/coredump/*
 
 exit
-
-
-
-#COREDUMP off
- 
-  
-  sed -i '/\[Coredump\]/s/\[Coredump\]/\[Coredump\]\nStorage=none/' /etc/systemd/coredump.conf
-  sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
-  rm -Rv /var/lib/systemd/coredump/*
-
-
-
-
-# YAY 
-LINK=https://aur.archlinux.org/yay.git
-NAME=$(basename "$LINK" | sed 's/\.git$//')
-
-sudo rm -Rv  ~/git/.git
-mkdir ~/git/$NAME
-git clone $LINK ~/git/$NAME
-cd ~/git/$NAME
-makepkg -si
-yay
