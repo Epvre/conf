@@ -1,5 +1,14 @@
 #!/bin/bash 
 
+# CLEAR unnecessary
+L_MIN=list_pacman_mini.txt
+L_START=list_pacman_start.txt
+> $OUT
+
+pacman -Rs vi vim --noconfirm --verbose 
+pacman -Qq >$L_MIN
+pacman -S --needed $(<$L_START) --noconfirm --verbose 
+
 #POWER management 
 GRUB_CF=/etc/default/grub
 sed -i 's/GRUB_TIMEOUT=[0-9]*/GRUB_TIMEOUT=0/g' $GRUB_CF
@@ -18,7 +27,6 @@ W_CF=/etc/modprobe.d/iwlwifi.conf
 cat >$W_CF<<EOF
 options iwlmvm power_scheme=1
 EOF
-
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -58,18 +66,7 @@ systemctl stop systemd-journald-dev-log.socket
   sed -i '/End of file/c\* hard core 0\nEnd of file' /etc/security/limits.conf
   rm -Rv /var/lib/systemd/coredump/*
 
-# CLEAR unnecessary
-L_MIN=list_pacman_mini.txt
-L_START=list_pacman_start.txt
 
-sudo pacman -Rscun vi vim --noconfirm --verbose 
-
-# FREEZE start config
-> $OUT
-pacman -Qq >$L_MIN
-
-# INSTALL ALL PACKAGES
-sudo pacman -S --needed $(<$L_START) --noconfirm --verbose 
 
 
 # YAY 
