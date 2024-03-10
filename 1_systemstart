@@ -8,7 +8,7 @@ L_START=list_pacman_start.txt
 pacman -Rs vi vim --noconfirm 
 pacman -Qq >$L_MIN
 pacman -S --needed $(<$L_START) --noconfirm --verbose 
-rm -Rv  ~/.bash_history
+#rm -Rv  ~/.bash_history
 
 #POWER management 
 GRUB_CF=/etc/default/grub
