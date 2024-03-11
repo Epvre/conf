@@ -1,15 +1,7 @@
 #!/bin/bash
 #NVIDIA
   
-# YAY 
-LINK=https://aur.archlinux.org/yay.git
-NAME=$(basename "$LINK" | sed 's/\.git$//')
 
-sudo rm -Rv  ~/git/.git
-mkdir ~/git/$NAME
-git clone $LINK ~/git/$NAME
-cd ~/git/$NAME
-makepkg -si
 
 
 #VIDEO power managment debug
