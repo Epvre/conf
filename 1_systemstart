@@ -39,8 +39,18 @@ echo "-A exclude,always -F msgtype=SERVICE_STOP" >> $R_CF
 echo "-A exclude,always -F msgtype=BPF" >> $R_CF
 echo "-A exclude,always -F exe=/usr/bin/sudo" >> $R_CF
 
+auditctl -a always,exit -F arch=b64 -S openat,truncate -F dir=/etc -F success=0
+auditctl -a always,exit -F arch=b64 -F path=/etc/shadow -F perm=wa
 auditctl -a exit,always -S chmod
 auditctl -w /etc/passwd -p rwxa
+auditctl -w /etc/security/
+
+groupadd -r audit
+gpasswd -a root audit
+gpasswd -a epvre audit
+A_CF=/etc/audit/auditd.conf
+echo "log_group = audit" >> $A_CF
+
 
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
