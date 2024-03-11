@@ -1,8 +1,5 @@
 #!/bin/bash 
-
-
-
-#GRUB management power and security
+#GRUB management power and boot
 GRUB_CF=/etc/default/grub
 > $GRUB_CF
 echo "GRUB_TIMEOUT=0" >> $GRUB_CF
