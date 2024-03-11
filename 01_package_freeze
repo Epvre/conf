@@ -1,4 +1,15 @@
 #!/bin/bash
+# YAY 
+LINK=https://aur.archlinux.org/yay.git
+NAME=$(basename "$LINK" | sed 's/\.git$//')
+
+sudo rm -Rv  ~/git/.git
+mkdir ~/git/$NAME
+git clone $LINK ~/git/$NAME
+cd ~/git/$NAME
+makepkg -si
+
+
 bash 2_1_users_creation_politics
 bash 2_1_1_user_creation
 bash 2_2_internet_politics
