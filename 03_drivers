@@ -19,7 +19,7 @@ sudo pacman -S xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-x
 #START_LINE=$(grep -n "Section \"Device\"" $FILE | cut -d: -f1)
 #END_LINE=$(grep -n "EndSection" $FILE | awk -F: -v start=$START_LINE '$1 > start {print $1; exit}')
 #sed -i "${END_LINE}a\  
-$$N_TEXT" $FILE
+#$N_TEXT" $FILE
 
 #Nvidia debug 2
   #pacman -S base-devel
