@@ -10,7 +10,7 @@
 #/etc/modules-load.d/acpi_call.conf
 
 #Xserver
-sudo pacman -S --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glaex2 xterm xorg-xclock xorg-twm xdg-menu
+sudo pacman -S --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glmark2 xterm xorg-xclock xorg-twm archlinux-xdg-menu
 
 #Nvidia debug1
 #FILE="/etc/bumblebee/xorg.conf.nvidia"
@@ -39,7 +39,7 @@ sudo pacman -S --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xra
 #Start X
   cp /etc/X11/xinit/xinitrc ~/.xinitrc
   startx
-  glaex2 
+  glmark2 
 
 
 #KVM VD-t
