@@ -12,25 +12,25 @@ cd ~/git/$NAME
 makepkg -si
 yay
 
-  sudo pacman -S --noconfirm --needed nvidia mesa lib32-virtualgl lib32-nvidia-utils primus bumblebee acpi_call
-  sudo gpasswd -a $USER bumblebee 
+#VIDEO power managment debug
+#sudo pacman -S --noconfirm --needed nvidia mesa lib32-virtualgl lib32-nvidia-utils primus bumblebee acpi_call
+#sudo gpasswd -a $USER bumblebee 
  
-  modprobe acpi_call
-  /usr/share/acpi_call/examples/turn_off_gpu.sh
-  /etc/modules-load.d/acpi_call.conf
+#modprobe acpi_call
+#/usr/share/acpi_call/examples/turn_off_gpu.sh
+#/etc/modules-load.d/acpi_call.conf
 
 #Xserver
-  sudo pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glaex2 xterm xorg-xclock xorg-twm xdg-menu
+sudo pacman -S --noconfirm --needed xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glaex2 xterm xorg-xclock xorg-twm xdg-menu
 
 #Nvidia debug1
-  FILE="/etc/bumblebee/xorg.conf.nvidia"
-  N_TEXT="Option \"HardDPMS \"false\"
-  End Section"
-
-  START_LINE=$(grep -n "Section \"Device\"" $FILE | cut -d: -f1)
-  END_LINE=$(grep -n "EndSection" $FILE | awk -F: -v start=$START_LINE '$1 > start {print $1; exit}')
-  sed -i "${END_LINE}a\  
-  $N_TEXT" $FILE
+FILE="/etc/bumblebee/xorg.conf.nvidia"
+N_TEXT="Option \"HardDPMS \"false\"
+End Section"
+START_LINE=$(grep -n "Section \"Device\"" $FILE | cut -d: -f1)
+END_LINE=$(grep -n "EndSection" $FILE | awk -F: -v start=$START_LINE '$1 > start {print $1; exit}')
+sed -i "${END_LINE}a\  
+$N_TEXT" $FILE
 
 #Nvidia debug 2
   #pacman -S base-devel
