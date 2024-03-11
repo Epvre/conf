@@ -9,7 +9,7 @@ echo "GRUB_ENABLE_CRYPTODISK=y" >> $GRUB_CF
 echo "CONFIG_SECURITY_APPARMOR=y" >> $GRUB_CF
 echo "CONFIG_AUDIT=y" >> $GRUB_CF
 
-PER="quiet pci=nommconf,noaer,nommconf pcie_aspm=off  audit=1 apparmor=1 security=apparmor threadirqs"
+PER="quiet pci=nommconf,noaer,nommconf pcie_aspm=off  audit=1 apparmor=1 security=apparmor"
 echo "GRUB_CMDLINE_LINUX_DEFAULT=$PER" >> $GRUB_CF
 
 #APPARMOR settings
