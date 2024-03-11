@@ -5,3 +5,6 @@ nano
 nvidia
 mesa
 apparmor
+
+xz
+7zip
