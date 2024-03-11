@@ -38,8 +38,6 @@ echo "-A exclude,always -F exe=/usr/bin/sudo" >> $R_CF
 systemctl enable auditd
 systemctl start auditd
 
-
-
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
 echo "options iwlmvm power_scheme=1" > $W_CF
