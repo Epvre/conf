@@ -10,7 +10,7 @@
 #/etc/modules-load.d/acpi_call.conf
 
 #Xserver
-pacman -S xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glaex2 xterm xorg-xclock xorg-twm xdg-menu
+sudo pacman -S xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glaex2 xterm xorg-xclock xorg-twm xdg-menu
 
 #Nvidia debug1
 #FILE="/etc/bumblebee/xorg.conf.nvidia"
