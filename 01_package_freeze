@@ -20,14 +20,4 @@ pacman -Qq >$L_MIN
 pacman -S --needed $(<$L_START) --noconfirm --verbose 
  
 
-
-bash 2_1_users_creation_politics
-bash 2_1_1_user_creation
-bash 2_2_internet_politics
-bash 2_3_local_politics
-bash 2_4_disk_enckrypt 
-/etc/default/grub
-/etc/default/grub
-https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file
-GRUB_ENABLE_CRYPTODISK=y
-bash 2_5
+ 
