@@ -10,6 +10,17 @@ cd ~/git/$NAME
 makepkg -si
 
 
+# PACMAN
+L_MIN=list_pacman_mini.txt
+L_START=list_pacman_start.txt
+> $OUT
+
+pacman -Rs vi vim --noconfirm 
+pacman -Qq >$L_MIN
+pacman -S --needed $(<$L_START) --noconfirm --verbose 
+#rm -Rv  ~/.bash_history
+
+
 bash 2_1_users_creation_politics
 bash 2_1_1_user_creation
 bash 2_2_internet_politics
