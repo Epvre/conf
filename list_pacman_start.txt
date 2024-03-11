@@ -8,3 +8,6 @@ apparmor
 
 xz
 7zip
+
+htop
+nvtop
