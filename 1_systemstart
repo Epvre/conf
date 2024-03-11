@@ -35,7 +35,10 @@ echo "-A exclude,always -F msgtype=SERVICE_STOP" >> $R_CF
 echo "-A exclude,always -F msgtype=BPF" >> $R_CF
 echo "-A exclude,always -F exe=/usr/bin/sudo" >> $R_CF
 
-swapoff -va
+systemctl enable auditd
+systemctl start auditd
+
+
 
 #WIFI power
 W_CF=/etc/modprobe.d/iwlwifi.conf
@@ -67,11 +70,14 @@ sysctl -p $CORE_CF
 
 CORE_CF=/etc/systemd/coredump.conf
 sed -i 's/Storage=.*/Storage=none/g' $CORE_CF
+echo "Storage=none" >> $CORE_CF
 
 #CORE_CF=/etc/security/limits.conf
 #echo "* hard core 0" >> $CORE_CF
 
 rm -Rv /var/lib/systemd/coredump/*
+
+swapoff -va
 
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
