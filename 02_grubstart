@@ -45,6 +45,10 @@ echo "log_group = audit" >> $A_CF
 W_CF=/etc/modprobe.d/iwlwifi.conf
 echo "options iwlmvm power_scheme=1" > $W_CF
 
+#AUDIO power
+A_CF=/etc/modprobe.d/alsa-base.conf
+echo "options snd-hda-intel index=0" > $A_CF
+
 #LOG management 
 J_CG=/etc/systemd/journald.conf
 > $J_CG
