@@ -18,9 +18,8 @@ L_START=list_pacman_start.txt
 sudo pacman -Rs vi vim --noconfirm 
 sudo pacman -Qq > $L_MIN
 
-while IFS= read -r PROGRAM; do
-    sudo pacman -S --noconfirm $PROGRAM
-done < $L_START
+sudo pacman -S --needed $(<$L_START)
+
 
  
 
