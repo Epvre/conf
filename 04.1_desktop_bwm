@@ -31,7 +31,7 @@
 #Dots
   cd ~/git/
   git clone https://gitlab.com/prolinux410/owl_dots
-  cp ~/owl_dots/bspwm/bspwm_yellow/.config ~/.config
+  cp ~/git/owl_dots/bspwm/bspwm_yellow/.config ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
 
 
