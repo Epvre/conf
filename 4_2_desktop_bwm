@@ -25,7 +25,7 @@ fc-cache -f -v
 #dots
   cd ~/git/
   git clone https://gitlab.com/prolinux410/owl_dots
-  cat ~/owl_dots/bspwm/bspwm_yellow/.config >> ~/.config
+  cp ~/owl_dots/bspwm/bspwm_yellow/.config ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
 
   F_CF=~/.xinitrc
