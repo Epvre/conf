@@ -24,13 +24,23 @@
   fc-cache -f -v
 #Browser
   sudo pacman -S --noconfirm --needed --verbose w3m
-#dots
-  cd ~/git/
+
+
+#Config
+  sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc /home/$USER/.config/bspwm/bspwmrc -v
+  sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc /home/$USER/.config/sxhkd/sxhkdrc -v
+  sudo echo "expec bspwm" > ~/.xinitrc
+  sudo systemctl enable sxhkd
+
+exit
+#Dots
+cd ~/git/
   git clone https://gitlab.com/prolinux410/owl_dots
   cp ~/owl_dots/bspwm/bspwm_yellow/.config ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
 
-  F_CF=~/.xinitrc
+
+F_CF=~/.xinitrc
 echo "
 exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &
 exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
