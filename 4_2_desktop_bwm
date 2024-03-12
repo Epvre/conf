@@ -8,7 +8,7 @@
 
 #Terminal
   sudo pacman -S --noconfirm --needed xterm qterminal kitty alacritty
-exit
+
 #Soft
   sudo pacman -S --noconfirm --needed pulseaudio pavucontrol viewnior nemo htop cmus neofetch scrot ranger neovim mpv polybar picom rofi
 conky ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick bspwm_rounded mpd ncmpcpp gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick ghostscript
