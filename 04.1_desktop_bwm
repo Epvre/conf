@@ -1,5 +1,5 @@
 #Windows manager
-  sudo pacman -S --noconfirm --needed --verbose bspwm sxhkd xdo xorg-twm
+  sudo pacman -S --noconfirm --needed --verbose bspwm sxhkd   
 #Config
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc /home/$USER/.config/bspwm/bspwmrc -v
   sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc /home/$USER/.config/sxhkd/sxhkdrc -v
