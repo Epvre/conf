@@ -24,7 +24,7 @@
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc -v
   sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc -v
   sudo find ~/ -exec chown $USER {} +
-  sudo find ~/ -exec chattr +i {} +
+  sudo find ~/ -exec chattr +t {} +
   sudo echo "expec bspwm" > ~/.xinitrc
   sudo systemctl enable sxhkd
 
