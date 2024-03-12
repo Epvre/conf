@@ -1,21 +1,26 @@
 #Windows manager
-  sudo pacman -S --noconfirm --needed bspwm sxhkd xdo xorg-twm
+  sudo pacman -S --noconfirm --needed bspwm sxhkd xdo xorg-twm bspwm_rounded
 #Config
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc /home/$USER/.config/bspwm/bspwmrc -v
   sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc /home/$USER/.config/sxhkd/sxhkdrc -v
   sudo echo "expec bspwm" > /home/$USER/.xinitrc
   systemctl enable sxhkd
-
+#Bar 
+ sudo pacman -S --noconfirm --needed polybar
 #Terminal
-  sudo pacman -S --noconfirm --needed xterm qterminal kitty alacritty
-
-#Soft
-  sudo pacman -S --noconfirm --needed pulseaudio pavucontrol viewnior nemo htop cmus neofetch scrot ranger neovim mpv polybar picom rofi
-conky ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick bspwm_rounded mpd ncmpcpp gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick ghostscript
-
+  sudo pacman -S --noconfirm --needed xterm qterminal kitty alacritty picom jq
+#Audio
+  sudo pacman -S --noconfirm --needed pulseaudio pavucontrol cmus mpv mpd ncmpcpp
+#Image and filles manager
+  sudo pacman -S --noconfirm --needed viewnior nemo ranger scrot feh ueberzug imagemagick
+#System monitors
+  sudo pacman -S --noconfirm --needed htop rofi neofetch conky jq       
+#Fonts and icons
+  sudo pacman -S --noconfirm --needed ttf-nerd-fonts-symbols gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols    
+#Browser
+  sudo pacman -S --noconfirm --needed w3m
 #dots
   git clone https://gitlab.com/prolinux410/owl_dots
-
   cat ~/owl_dots/bspwm/bspwm_yellow/.config >> ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
 
