@@ -23,6 +23,7 @@ fc-cache -f -v
 #Browser
   sudo pacman -S --noconfirm --needed --verbose w3m
 #dots
+  cd ~/git/
   git clone https://gitlab.com/prolinux410/owl_dots
   cat ~/owl_dots/bspwm/bspwm_yellow/.config >> ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
