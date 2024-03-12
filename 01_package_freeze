@@ -17,7 +17,7 @@ L_START=list_pacman_start.txt
 
 sudo pacman -Rs vi vim --noconfirm 
 sudo pacman -Qq > $L_MIN
-sudo pacman -S --needed $(<$L_START) --noconfirm --verbose 
+sudo pacman -S $(<$L_START) --noconfirm --verbose 
  
 
  
