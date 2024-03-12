@@ -82,6 +82,8 @@ echo "Storage=none" >> $CORE_CF
 
 rm -Rv /var/lib/systemd/coredump/*
 
+dkms install nvidia/334.21
+
 swapoff -va
 
 grub-mkconfig -o /boot/grub/grub.cfg
