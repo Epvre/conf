@@ -1,7 +1,7 @@
 #Windows manager
   sudo pacman -S --noconfirm --needed --verbose bspwm sxhkd   
 #Bar 
- sudo pacman -S --noconfirm --needed --verbose polybar
+  sudo pacman -S --noconfirm --needed --verbose polybar
 #Terminal
   sudo pacman -S --noconfirm --needed --verbose xterm qterminal kitty alacritty picom jq
 #Audio
@@ -19,7 +19,6 @@
   fc-cache -f -v
 #Browser
   sudo pacman -S --noconfirm --needed --verbose w3m
-
 
 #Config
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc -v
