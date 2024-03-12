@@ -13,7 +13,6 @@ makepkg -si
 # PACMAN
 L_MIN=list_pacman_mini.txt
 L_START=list_pacman_start.txt
-> $OUT
 
 sudo pacman -Rs vi vim --noconfirm 
 sudo pacman -Qq > $L_MIN
