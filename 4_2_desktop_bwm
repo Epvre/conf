@@ -17,6 +17,9 @@
   sudo pacman -S --noconfirm --needed --verbose htop rofi neofetch conky jq       
 #Fonts and icons
   sudo pacman -S --noconfirm --needed --verbose ttf-nerd-fonts-symbols gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols    
+unzip  ~/Downloads/JetBrainsMono-2.304.zip ./
+cp  ~/Downloads/JetBrainsMono-2.304 /usr/share/fonts
+fc-cache -f -v
 #Browser
   sudo pacman -S --noconfirm --needed --verbose w3m
 #dots
