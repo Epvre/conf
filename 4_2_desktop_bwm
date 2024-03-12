@@ -13,16 +13,12 @@
   sudo pacman -S --noconfirm --needed pulseaudio pavucontrol viewnior nemo htop cmus neofetch scrot ranger neovim mpv polybar picom rofi
 conky ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick bspwm_rounded mpd ncmpcpp gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols feh jq ueberzug w3m imagemagick ghostscript
 
-
-
-
 #dots
   git clone https://gitlab.com/prolinux410/owl_dots
 
   cat ~/owl_dots/bspwm/bspwm_yellow/.config >> ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
 
-  tee ~/.xinitrc < EOF
-  exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &  
-  exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc
-  EOF
+  F_CF=~/.xinitrc
+  echo "exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &" > $F_CF
+  echo "exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
