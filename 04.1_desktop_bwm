@@ -21,6 +21,8 @@
   sudo pacman -S --noconfirm --needed --verbose w3m
 
 #Config
+chown -R $USER:$USER ~/
+sudo chattr +i ~/*
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc -v
   sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc -v
   sudo echo "expec bspwm" > ~/.xinitrc
