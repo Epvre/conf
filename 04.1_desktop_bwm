@@ -21,9 +21,6 @@
   sudo pacman -S --noconfirm --needed --verbose w3m
 
 #Config
-
-
-sudo chattr +i ~/*
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc -v
   sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc -v
   sudo find ~/ -exec chown $USER {} +
@@ -31,15 +28,14 @@ sudo chattr +i ~/*
   sudo echo "expec bspwm" > ~/.xinitrc
   sudo systemctl enable sxhkd
 
-exit
 #Dots
-cd ~/git/
+  cd ~/git/
   git clone https://gitlab.com/prolinux410/owl_dots
   cp ~/owl_dots/bspwm/bspwm_yellow/.config ~/.config
     #~/owl_dots/bspwm/bspwm_otto/.config
 
 
-F_CF=~/.xinitrc
-echo "
-exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &
-exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
+  F_CF=~/.xinitrc
+  echo "
+  exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &
+  exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
