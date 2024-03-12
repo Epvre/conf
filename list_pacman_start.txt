@@ -8,6 +8,7 @@ apparmor
 
 xz
 7zip
+unzip
 
 htop
 nvtop
