@@ -4,7 +4,7 @@
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc /home/$USER/.config/bspwm/bspwmrc -v
   sudo install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc /home/$USER/.config/sxhkd/sxhkdrc -v
   sudo echo "expec bspwm" > /home/$USER/.xinitrc
-  systemctl enable sxhkd
+  sudo systemctl enable sxhkd
 #Bar 
  sudo pacman -S --noconfirm --needed --verbose polybar
 #Terminal
