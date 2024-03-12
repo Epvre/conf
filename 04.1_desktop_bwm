@@ -36,6 +36,6 @@
 
 
   F_CF=~/.xinitrc
-  echo "
+  sudo echo "
   exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &
   exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
