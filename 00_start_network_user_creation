@@ -11,6 +11,9 @@ mkdir /home/$USER/bin
 chown $USER /home/$USER/
 chown -R $USER:$USER /home/$USER
 chmod 700 /home/$USER
+sudo chattr +i /path/to/folder/*
+
+
 sudo chroot /home/$USER/ /bin/bash
 
 
