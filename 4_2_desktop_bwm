@@ -17,9 +17,11 @@
   sudo pacman -S --noconfirm --needed --verbose htop rofi neofetch conky jq       
 #Fonts and icons
   sudo pacman -S --noconfirm --needed --verbose ttf-nerd-fonts-symbols gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols    
-unzip  ~/Downloads/JetBrainsMono-2.304.zip ./
-cp  ~/Downloads/JetBrainsMono-2.304 /usr/share/fonts
-fc-cache -f -v
+  cd ~/Downloads/
+  wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip?_gl=1*yqum25*_ga*Njg1NTcyNzYuMTcxMDI1MTc2OA..*_ga_9J976DJZ68*MTcxMDI1MTc2Ny4xLjEuMTcxMDI1MTg1MC4wLjAuMA..&_ga=2.203032725.5621410.1710251768-68557276.1710251768
+  unzip  ~/Downloads/JetBrainsMono-2.304.zip ./
+  cp  ~/Downloads/JetBrainsMono-2.304 /usr/share/fonts/
+  fc-cache -f -v
 #Browser
   sudo pacman -S --noconfirm --needed --verbose w3m
 #dots
@@ -29,5 +31,6 @@ fc-cache -f -v
     #~/owl_dots/bspwm/bspwm_otto/.config
 
   F_CF=~/.xinitrc
-  echo "exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &" > $F_CF
-  echo "exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
+echo "
+exec sxhkd -c ~/.config/bspwm/themes/bspwm_yellow/sxhkd/sxhkdrc &
+exec bspwm -c ~/.config/bspwm/themes/bspwm_yellow/bspwm/bspwmrc" > $F_CF
