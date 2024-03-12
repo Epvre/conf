@@ -15,9 +15,9 @@ L_MIN=list_pacman_mini.txt
 L_START=list_pacman_start.txt
 > $OUT
 
-pacman -Rs vi vim --noconfirm 
-pacman -Qq >$L_MIN
-pacman -S --needed $(<$L_START) --noconfirm --verbose 
+sudo pacman -Rs vi vim --noconfirm 
+sudo pacman -Qq >$L_MIN
+sudo pacman -S --needed $(<$L_START) --noconfirm --verbose 
  
 
  
