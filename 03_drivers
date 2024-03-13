@@ -10,7 +10,7 @@
 #/etc/modules-load.d/acpi_call.conf
 
 #Xserver
-sudo pacman -S --noconfirm --needed --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glmark2 xterm xorg-xclock xorg-twm archlinux-xdg-menu xdo xorg-xprop
+sudo pacman -S --noconfirm --needed --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glmark2 xterm xorg-xclock xorg-twm archlinux-xdg-menu xdo xorg-xprop mesa
 
 #Nvidia debug1
 #FILE="/etc/bumblebee/xorg.conf.nvidia"
