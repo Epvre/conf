@@ -1,10 +1,12 @@
+nvidia
+nvidia-dkms
+nvidia-utils
+mesa
+
 coreutils
 base-devel
 git
 nano
-nvidia
-mesa
-apparmor
 
 xz
 7zip
@@ -12,3 +14,4 @@ unzip
 
 htop
 nvtop
+apparmor
