@@ -1,24 +1,24 @@
 #Windows manager
-  sudo pacman -S --noconfirm --needed --verbose bspwm sxhkd   
+  sudo pacman -S --noconfirm --needed --verbose bspwm sxhkd   xorg   numlockx  ghostscript lxappearance nitrogen feh
 #Bar 
-  sudo pacman -S --noconfirm --needed --verbose polybar
+  sudo pacman -S --noconfirm --needed --verbose polybar 
 #Terminal
-  sudo pacman -S --noconfirm --needed --verbose xterm qterminal kitty alacritty picom jq
+  sudo pacman -S --noconfirm --needed --verbose xterm qterminal kitty alacritty picom jq alacritty fish-shell
 #Audio
   sudo pacman -S --noconfirm --needed --verbose pulseaudio pavucontrol cmus mpv mpd ncmpcpp
 #Image and filles manager
-  sudo pacman -S --noconfirm --needed --verbose viewnior nemo ranger scrot feh ueberzug imagemagick
+  sudo pacman -S --noconfirm --needed --verbose viewnior nemo ranger scrot feh ueberzug imagemagick obs obs-plugin-browser-bin  file-roller 
 #System monitors
   sudo pacman -S --noconfirm --needed --verbose htop rofi neofetch conky jq       
 #Fonts and icons
-  sudo pacman -S --noconfirm --needed --verbose ttf-nerd-fonts-symbols gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols    
+  sudo pacman -S --noconfirm --needed --verbose ttf-nerd-fonts-symbols gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols nerd-fonts-symbols-ttf
   cd ~/Downloads/
   wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip?_gl=1*yqum25*_ga*Njg1NTcyNzYuMTcxMDI1MTc2OA..*_ga_9J976DJZ68*MTcxMDI1MTc2Ny4xLjEuMTcxMDI1MTg1MC4wLjAuMA..&_ga=2.203032725.5621410.1710251768-68557276.1710251768
   unzip  ~/Downloads/JetBrainsMono-2.304.zip ./
   cp  ~/Downloads/JetBrainsMono-2.304 /usr/share/fonts/
   fc-cache -f -v
 #Browser
-  sudo pacman -S --noconfirm --needed --verbose w3m
+  sudo pacman -S --noconfirm --needed --verbose w3m links
 
 #Config
   sudo install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc -v
