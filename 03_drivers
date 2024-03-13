@@ -11,6 +11,9 @@
 
 #Xserver
 sudo pacman -S --noconfirm --needed --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glmark2 xterm xorg-xclock xorg-twm archlinux-xdg-menu xdo xorg-xprop mesa
+sudo nvidia-dkms 
+dkms install --no-depmod nvidia/550.54.14 -k 6.7.9-arch1-1
+
 
 #Nvidia debug1
 #FILE="/etc/bumblebee/xorg.conf.nvidia"
