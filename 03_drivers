@@ -13,7 +13,7 @@
 sudo pacman -S --noconfirm --needed --verbose xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb glmark2 xterm xorg-xclock xorg-twm archlinux-xdg-menu xdo xorg-xprop mesa 
 dkms install --no-depmod nvidia/550.54.14 -k 6.7.9-arch1-1
 #Для борьбы с тирингом пробовал добавлять конфиги в /etc/X11/xorg.conf.d? (допустим у меня встроенка Intel и я кидал туда 20-intel.conf. В итоге тиринг полностью пропадал (даже без включения анимацией пикома))
-sudo nvidia-dkms modesetting
+sudo nvidia-dkms modesetting  xf86-video-intel
 
 #Nvidia debug1
 #FILE="/etc/bumblebee/xorg.conf.nvidia"
