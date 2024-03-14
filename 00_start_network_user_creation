@@ -32,3 +32,24 @@ bash 2_4_disk_enckrypt
 https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file
 GRUB_ENABLE_CRYPTODISK=y
 bash 2_5
+
+
+#Secure back ip
+RP_CF=/usr/lib/sysctl.d/50-default.conf
+echo "net.ipv4.conf.default.rp_filter = 1" >> $RP_CF
+echo "net.ipv4.conf.all.rp_filter = 1" >> $RP_CF
+
+#Secure ICMP and ping 
+IC_CF=/etc/sysctl.conf
+echo "net.ipv4.conf.all.accept_redirects = 0" >> $IC_CF
+echo "net.ipv4.conf.default.accept_redirects = 0" >> $IC_CF
+echo "net.ipv4.conf.all.secure_redirects = 0" >> $IC_CF
+echo "net.ipv4.conf.default.secure_redirects = 0" >> $IC_CF
+echo "net.ipv6.conf.all.accept_redirects = 0" >> $IC_CF
+echo "net.ipv6.conf.default.accept_redirects = 0" >> $IC_CF
+echo "net.ipv4.conf.all.send_redirects = 0" >> $IC_CF
+echo "net.ipv4.conf.default.send_redirects = 0" >> $IC_CF
+echo "net.ipv4.icmp_echo_ignore_all = 1" >> $IC_CF
+echo "net.ipv6.icmp.echo_ignore_all = 1" >> $IC_CF
+
+
