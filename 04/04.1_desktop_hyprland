@@ -23,6 +23,7 @@ sudo pacman -S nano-syntax-highlighting
 
 N_CF=~/.config/nano/nanorc
 mkdir -p ~/.config/nano
+> $N_CF
 echo "set linenumbers" >> $N_CF
 echo "set constantshow" >> $N_CF
 echo "set titlecolor brightwhite,yellow" >> $N_CF
