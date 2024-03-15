@@ -37,7 +37,7 @@ echo "set indicator" >> $N_CF
 
 #echo "set zap" >> $N_CF
 echo "set regexp" >> $N_CF
-echo "set bookstyle" >> $N_CF
+#echo "set bookstyle" >> $N_CF
 #echo "set breaklonglines" >> $N_CF
 #echo "set cutfromcursor" >> $N_CF
 #echo "set magic" >> $N_CF
