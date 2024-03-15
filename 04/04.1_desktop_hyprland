@@ -35,8 +35,8 @@ echo "set errorcolor brightwhite,red" >> $N_CF
 echo "set selectedcolor black,white" >> $N_CF
 echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
-
-
+nano --syntax=sh ~/.bashrc
+ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
 
 #PER=sudo source <(cat "usr/share/nano/*.nanorc")
 #echo $PER >> $N_CF
