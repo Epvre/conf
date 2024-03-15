@@ -42,7 +42,7 @@ echo "set breaklonglines" >> $N_CF
 echo "set cutfromcursor" >> $N_CF
 echo "set magic" >> $N_CF
 echo "set noconert" >> $N_CF
-echo "set rebinddelete"  >> $N_CF
+#echo "set rebinddelete"  >> $N_CF
 echo "set smarthome"  >> $N_CF
 echo "set softwrap"  >> $N_CF
 echo "set wordbounds"  >> $N_CF
@@ -68,6 +68,8 @@ ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
 
 #INSTALL 
-sudo git clone https://github.com/...
+#sudo git clone https://github.com/...
+
+HP_CG=~/HyprV2xdogen/hypr/hyprland.conf
 
  
