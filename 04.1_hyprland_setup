@@ -62,6 +62,7 @@ echo "set mouse" >> $N_CF
 #echo set brackets ""')>]}" >> $N_CF
 echo set matchbrackets "(<[{)>]}" >> $N_CF
 echo set punct "!.?" >> $N_CF
+echo set speller "aspell -x -c"  >> $N_CF 
 
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
