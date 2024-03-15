@@ -17,9 +17,6 @@ echo "set max_history_size 0" >> $R_CF
 echo "set max_console_history_size 0" >> $R_CF
 echo "set autosave_bookmarks true" >> $R_CF
 
-
-
-
 B_CF=~/.bashrc
 echo "export EDITOR=nano -l" >> $B_CF
 
