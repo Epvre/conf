@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git clone https://github.com
+
+pacman -S ranger 
+R_CF=~/.config/ranger/rc.conf
+> $R_CF
+echo "set show_hidden true" >> $R_CF
+echo "set preview_images true" >> $R_CF
+echo "set preview_images_method kitty" >> $R_CF 
