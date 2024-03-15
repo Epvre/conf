@@ -58,7 +58,7 @@ echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
 echo "set mouse" >> $N_CF
 
-echo set brackets ""')>]}" >> $N_CF
+#echo set brackets ""')>]}" >> $N_CF
 echo set matchbrackets "(<[{)>]}" >> $N_CF
 echo set punct "!.?" >> $N_CF
 
