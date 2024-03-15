@@ -51,17 +51,14 @@ echo "bind ^V paste all" >> $N_CF
 echo "bind ^F whereis all" >> $N_CF
 echo "bind ^S savefile main" >> $N_CF
 
-echo "set titlecolor brightwhite,yellow" >> $N_CF
-echo "set keycolor white,blue" >> $N_CF
 echo "set functioncolor normal,normal" >> $N_CF
-echo "set numbercolor white,magenta" >> $N_CF
 echo "set errorcolor brightwhite,red" >> $N_CF
 echo "set selectedcolor black,white" >> $N_CF
 echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
 echo "set mouse" >> $N_CF
 
-nano --syntax=sh ~/.bashrc
+
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
