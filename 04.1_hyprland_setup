@@ -23,7 +23,7 @@ echo "export EDITOR=nano -l" >> $B_CF
 sudo pacman -S --noconfirm --needed nano-syntax-highlighting
 
 N_CF=~/.config/nano/nanorc
-#mkdir -p /etc/nanorc 
+sudo rm -Rv /etc/nanorc 
 >$N_CF
 #echo "set linenumbers" >> $N_CF
 #echo "set trimblanks" >> $N_CF
