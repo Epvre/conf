@@ -31,7 +31,7 @@ echo "set tabsize 4" >> $N_CF
 #echo "set tabstospaces" >> $N_CF
 echo "set autoindent" >> $N_CF
 echo "set constantshow" >> $N_CF
-#echo "set suspend" >> $N_CF
+echo "set suspend" >> $N_CF
 echo "set minibar" >> $N_CF
 echo "set indicator" >> $N_CF
 
