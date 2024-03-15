@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S ranger 
+pacman -S --noconfirm --needed ranger 
 R_CF=~/.config/ranger/rc.conf
 >$R_CF
 echo "set show_hidden true" >> $R_CF
