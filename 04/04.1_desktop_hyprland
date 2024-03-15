@@ -27,9 +27,9 @@ N_CF=~/.config/nano/nanorc
 mkdir -p ~/.config/nano
 echo "set linenumbers" >> $N_CF
 echo "set constantshow" >> $N_CF
-PER=sudo source "/usr/share/nano/"
+PER=sudo source "/usr/share/nano/*.nanorc"
 echo $PER >> $N_CF
-PER= source <(cat /usr/share/nano-syntax-highlighting/*)
+PER= source < $(cat /usr/share/nano-syntax-highlighting/*.nanorc)
 echo "$PER" >> $N_CF
 
 #git clone https://github.com
