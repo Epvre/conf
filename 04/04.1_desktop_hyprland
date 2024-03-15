@@ -8,4 +8,16 @@ echo "set preview_images true" >> $R_CF
 echo "set preview_images_method kitty" >> $R_CF 
 echo "set automatically_count_files true" >> $R_CF
 echo "set vcs_backend_git enabled" >> $R_CF
+echo "set draw_progress_bar_in_status_bar true" >> $R_CF
+echo "set display_size_in_main_column true" >> $R_CF
+echo "set display_size_in_status_bar true" >> $R_CF
+echo "map DD shell mv %s /home/${USER}/.local/share/Trash/files/" >> $R_CF
 git clone https://github.com
+
+B_CF=~/.bashrc
+echo "export EDITOR=nano -l" >> $B_CF
+
+N_CF=~/.config/nano/nanorc
+mkdir -p ~/.config/nano
+echo "set linenumbers" >> $N_CF
+echo "set constantshow" >> $N_CF
