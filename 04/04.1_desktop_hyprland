@@ -29,7 +29,7 @@ echo "set linenumbers" >> $N_CF
 echo "set constantshow" >> $N_CF
 PER=include "/usr/share/nano/*.nanorc"
 echo $PER >> $N_CF
-PER=include "/usr/share/nano-syntax-highlighting/*.nanorc"
-echo $PER >> $N_CF
+PER=include /usr/share/nano-syntax-highlighting/*.nanorc
+echo "$PER" >> $N_CF
 
 #git clone https://github.com
