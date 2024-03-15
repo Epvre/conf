@@ -26,7 +26,7 @@ N_CF=~/.config/nano/nanorc
 #mkdir -p /etc/nanorc 
 >$N_CF
 echo "set linenumbers" >> $N_CF
-echo "set trimblanks" >> $N_CF
+#echo "set trimblanks" >> $N_CF
 echo "set tabsize 4" >> $N_CF
 echo "set tabstospaces" >> $N_CF
 echo "set autoindent" >> $N_CF
