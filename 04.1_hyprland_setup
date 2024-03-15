@@ -45,7 +45,7 @@ echo "set noconert" >> $N_CF
 #echo "set rebinddelete"  >> $N_CF
 echo "set smarthome"  >> $N_CF
 echo "set softwrap"  >> $N_CF
-echo "set wordbounds"  >> $N_CF
+#echo "set wordbounds"  >> $N_CF
 
 echo "bind ^C copy main" >> $N_CF
 echo "bind ^V paste all" >> $N_CF
