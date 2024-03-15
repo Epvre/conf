@@ -38,9 +38,3 @@ echo "set statuscolor black,white" >> $N_CF
 nano --syntax=sh ~/.bashrc
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
 
-#PER=sudo source <(cat "usr/share/nano/*.nanorc")
-#echo $PER >> $N_CF
-#F=/usr/share/nano-syntax-highlighting/*
-#echo "$PER" >> $N_CF
-#for f in $F; do source $f; done
-#git clone https://github.com
