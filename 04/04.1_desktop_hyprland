@@ -18,7 +18,7 @@ echo "set max_console_history_size 0" >> $R_CF
 echo "set autosave_bookmarks true" >> $R_CF
 
 
-git clone https://github.com
+
 
 B_CF=~/.bashrc
 echo "export EDITOR=nano -l" >> $B_CF
@@ -31,3 +31,5 @@ PER=include "/usr/share/nano/*.nanorc"
 echo $PER >> $N_CF
 PER=include "/usr/share/nano-syntax-highlighting/*.nanorc"
 echo $PER >> $N_CF
+
+#git clone https://github.com
