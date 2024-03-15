@@ -34,5 +34,5 @@ echo "set selectedcolor black,white" >> $N_CF
 echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
 nano --syntax=sh ~/.bashrc
-ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
-ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
+ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
+ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
