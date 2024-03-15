@@ -21,7 +21,7 @@ B_CF=~/.bashrc
 echo "export EDITOR=nano -l" >> $B_CF
 sudo pacman -S nano-syntax-highlighting
 
-N_CF=/etc/nanorc 
+N_CF=~/.config/nano/nanorc
 #mkdir -p /etc/nanorc 
 >$N_CF
 echo "set linenumbers" >> $N_CF
