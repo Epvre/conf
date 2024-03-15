@@ -35,7 +35,7 @@ echo "set tabstospaces" >> $N_CF
 echo "set minibar" >> $N_CF
 echo "set indicator" >> $N_CF
 
-echo "set zap" >> $N_CF
+#echo "set zap" >> $N_CF
 echo "set regexp" >> $N_CF
 echo "set bookstyle" >> $N_CF
 echo "set breaklonglines" >> $N_CF
