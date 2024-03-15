@@ -25,7 +25,7 @@ sudo pacman -S --noconfirm --needed nano-syntax-highlighting
 N_CF=~/.config/nano/nanorc
 sudo rm -Rv /etc/nanorc 
 >$N_CF
-#echo "set linenumbers" >> $N_CF
+echo "set linenumbers" >> $N_CF
 #echo "set trimblanks" >> $N_CF
 echo "set tabsize 4" >> $N_CF
 #echo "set tabstospaces" >> $N_CF
@@ -37,7 +37,7 @@ echo "set indicator" >> $N_CF
 
 #echo "set zap" >> $N_CF
 echo "set regexp" >> $N_CF
-#echo "set bookstyle" >> $N_CF
+echo "set bookstyle" >> $N_CF
 #echo "set breaklonglines" >> $N_CF
 #echo "set cutfromcursor" >> $N_CF
 #echo "set magic" >> $N_CF
