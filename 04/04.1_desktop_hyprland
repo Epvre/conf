@@ -19,7 +19,7 @@ echo "map DD shell mv %s /home/${USER}/.local/share/Trash/files/" >> $R_CF
 
 B_CF=~/.bashrc
 echo "export EDITOR=nano -l" >> $B_CF
-sudo pacman -S nano-syntax-highlighting
+sudo pacman -S --noconfirm --needed nano-syntax-highlighting
 
 N_CF=~/.config/nano/nanorc
 #mkdir -p /etc/nanorc 
@@ -58,8 +58,8 @@ echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
 echo "set mouse" >> $N_CF
 
-PER="set brackets \"\"\'\)\>\]\}\""
-echo $PER >> $N_CF
+PER="
+echo set brackets ""')>]}" >> $N_CF
 PER=set matchbrackets "(<[{)>]}"
 echo $PER >> $N_CF
 PER=set punct "!.?" 
