@@ -63,6 +63,11 @@ ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
 
-echo set brackets ""')>]}" >> $N_CF
-echo set matchbrackets "(<[{)>]}" >> $N_CF
-echo set punct "!.?" >> $N_CF
+PER=set brackets ""')>]}" 
+echo $PER >> $N_CF
+PER=set matchbrackets "(<[{)>]}"
+echo $PER >> $N_CF
+PER=set punct "!.?" 
+echo $PER >> $N_CF
+
+ 
