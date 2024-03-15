@@ -46,10 +46,6 @@ echo "set smarthome"  >> $N_CF
 echo "set softwrap"  >> $N_CF
 echo "set wordbounds"  >> $N_CF
 
-echo set brackets ""')>]}" >> $N_CF
-echo set matchbrackets "(<[{)>]}" >> $N_CF
-echo set punct "!.?" >> $N_CF
-
 echo "bind ^C copy main" >> $N_CF
 echo "bind ^V paste all" >> $N_CF
 echo "bind ^F whereis all" >> $N_CF
@@ -69,3 +65,7 @@ nano --syntax=sh ~/.bashrc
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
+
+echo set brackets ""')>]}" >> $N_CF
+echo set matchbrackets "(<[{)>]}" >> $N_CF
+echo set punct "!.?" >> $N_CF
