@@ -19,6 +19,7 @@ echo "set autosave_bookmarks true" >> $R_CF
 
 B_CF=~/.bashrc
 echo "export EDITOR=nano -l" >> $B_CF
+sudo pacman -S nano-syntax-highlighting
 
 N_CF=~/.config/nano/nanorc
 mkdir -p ~/.config/nano
@@ -34,4 +35,4 @@ echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
 nano --syntax=sh ~/.bashrc
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
-
+ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
