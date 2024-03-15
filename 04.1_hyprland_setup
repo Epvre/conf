@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#PREPARE
 sudo pacman -S --noconfirm --needed ranger 
 R_CF=~/.config/ranger/rc.conf
 >$R_CF
@@ -66,5 +67,7 @@ ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
 
+#INSTALL 
+sudo git clone https://github.com/...
 
  
