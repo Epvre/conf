@@ -58,13 +58,9 @@ echo "set stripecolor black,white" >> $N_CF
 echo "set statuscolor black,white" >> $N_CF
 echo "set mouse" >> $N_CF
 
-PER="
 echo set brackets ""')>]}" >> $N_CF
-PER=set matchbrackets "(<[{)>]}"
-echo $PER >> $N_CF
-PER=set punct "!.?" 
-echo $PER >> $N_CF
-
+echo set matchbrackets "(<[{)>]}" >> $N_CF
+echo set punct "!.?" >> $N_CF
 
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
