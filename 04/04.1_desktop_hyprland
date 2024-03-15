@@ -27,9 +27,20 @@ N_CF=~/.config/nano/nanorc
 mkdir -p ~/.config/nano
 echo "set linenumbers" >> $N_CF
 echo "set constantshow" >> $N_CF
-PER=sudo source <(cat "usr/share/nano/*.nanorc")
-echo $PER >> $N_CF
-F=/usr/share/nano-syntax-highlighting/*
-echo "$PER" >> $N_CF
-for f in $F; do source $f; done
+echo "set titlecolor brightwhite,yellow" >> $N_CF
+echo "set keycolor white,blue" >> $N_CF
+echo "set functioncolor normal,normal" >> $N_CF
+echo "set numbercolor white,magenta" >> $N_CF
+echo "set errorcolor brightwhite,red" >> $N_CF
+echo "set selectedcolor black,white" >> $N_CF
+echo "set stripecolor black,white" >> $N_CF
+echo "set statuscolor black,white" >> $N_CF
+
+
+
+#PER=sudo source <(cat "usr/share/nano/*.nanorc")
+#echo $PER >> $N_CF
+#F=/usr/share/nano-syntax-highlighting/*
+#echo "$PER" >> $N_CF
+#for f in $F; do source $f; done
 #git clone https://github.com
