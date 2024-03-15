@@ -1,10 +1,11 @@
 #!/bin/bash
 
-git clone https://github.com
-
 pacman -S ranger 
 R_CF=~/.config/ranger/rc.conf
 > $R_CF
 echo "set show_hidden true" >> $R_CF
 echo "set preview_images true" >> $R_CF
 echo "set preview_images_method kitty" >> $R_CF 
+echo "set automatically_count_files true" >> $R_CF
+echo "set vcs_backend_git enabled" >> $R_CF
+git clone https://github.com
