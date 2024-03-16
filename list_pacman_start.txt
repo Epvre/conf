@@ -7,6 +7,7 @@ coreutils
 base-devel
 git
 nano
+wget
 
 xz
 7zip
