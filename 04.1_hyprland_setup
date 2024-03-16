@@ -19,7 +19,7 @@ echo "set autosave_bookmarks true" >> $R_CF
 echo "map DD shell mv %s /home/${USER}/.local/share/Trash/files/" >> $R_CF
 
 B_CF=~/.bashrc
-echo "export EDITOR=nano -l" >> $B_CF
+echo "export EDITOR=nano" >> $B_CF
 sudo pacman -S --noconfirm --needed nano-syntax-highlighting
 
 N_CF=~/.config/nano/nanorc
