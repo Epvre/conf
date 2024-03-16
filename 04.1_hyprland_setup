@@ -77,8 +77,10 @@ ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' >> $N_CF
 ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' >> $N_CF
 
 #INSTALL 
-#sudo git clone https://github.com/...
-
+cd ~/
+sudo git clone https://github.com/SolDocsTech/HyprV4.git
+cd ~/HyprV4
+./set_hyper
 HP_CG=~/HyprV2xdogen/hypr/hyprland.conf
 
  
