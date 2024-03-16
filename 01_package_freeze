@@ -9,6 +9,7 @@ git clone $LINK ~/git/$NAME
 cd ~/git/$NAME
 makepkg -si
 
+yay -S tgpt
 
 # PACMAN
 cd ~/git/conf/
