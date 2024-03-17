@@ -18,7 +18,7 @@
 
 
 #IPTABLES
-rm -Rv /etc/iptables/*
+sudo rm -Rv /etc/iptables/*
 systemctl enable iptables
 
 
