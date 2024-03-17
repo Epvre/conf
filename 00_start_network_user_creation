@@ -21,6 +21,9 @@
 sudo rm -Rv /etc/iptables/*
 systemctl enable iptables
 
+#INTERNET group users  
+sudo groupadd internet_users
+sudo usermod -a -G internet_users $USER
 
 #SYSCTL dinamic core settings
 sysctl --load=/etc/sysctl.d/99-sysctl.conf
