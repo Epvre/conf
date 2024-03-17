@@ -18,9 +18,9 @@
 
 
 #IPTABLES
-IP_RU=/etc/iptables/iptables.rules
+IP_R=/etc/iptables/iptables.rules
 sudo rm -Rv /etc/iptables/*
-sudo touch $IP_RU
+sudo touch $IP_R
 systemctl enable iptables
 
 #INTERNET group users  
