@@ -24,6 +24,109 @@ systemctl enable iptables
 #INTERNET group users  
 sudo groupadd internet_users
 sudo usermod -a -G internet_users $USER
+#Add user
+#  USER=epvre
+#  useradd -m -G root $USER
+#  passwd $USER
+#  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
+
+#USER=ioann
+#useradd $USER
+#passwd $USER
+#mkdir /home/$USER/bin
+#chown $USER /home/$USER/
+#chown -R $USER:$USER /home/$USER
+#chmod 700 /home/$USER
+#sudo chattr +i /path/to/folder/*
+
+
+#sudo chroot /home/$USER/ /bin/bash
+
+
+#IPTABLES
+sudo rm -Rv /etc/iptables/*
+systemctl enable iptables
+
+#INTERNET group users  
+G_IU=internet_users
+sudo groupadd $G_IU
+sudo usermod -a -G $G_IU $USER
+getent group $G_IU
+
+#SYSCTL dinamic core settings
+sysctl --load=/etc/sysctl.d/99-sysctl.conf
+SY_CF=/etc/sysctl.d/99-sysctl.conf
+
+#Secure net pacages wait
+#echo "net.core.netdev_max_backlog = 16384" >> $SY_CF
+#echo "net.core.somaxconn = 8192" >> $SY_CF
+#echo "net.ipv4.tcp_fastopen = 3" >> $SY_CF
+#echo "net.ipv4.tcp_max_syn_backlog = 8192" >> $SY_CF
+#echo "net.ipv4.tcp_max_tw_buckets = 2000000" >> $SY_CF
+#echo "net.ipv4.tcp_tw_reuse = 1" >> $SY_CF
+#echo "net.ipv4.tcp_fin_timeout = 10" >> $SY_CF
+#echo "net.ipv4.tcp_slow_start_after_idle = 0" >> $SY_CF
+
+#MTU TCP BBR
+#echo "net.ipv4.tcp_mtu_probing = 1" >> $SY_CF
+#echo "net.ipv4.tcp_timestamps = 0" >> $SY_CF
+#echo "net.core.default_qdisc = cake" >> $SY_CF
+#echo "net.ipv4.tcp_congestion_control = bbr" >> $SY_CF
+#echo "net.ipv4.ip_local_port_range = 30000 65535" >> $SY_CF
+#echo "net.ipv4.tcp_syncookies = 1" >> $SY_CF
+#echo "net.ipv4.tcp_rfc1337 = 1" >> $SY_CF
+
+#Secure back ip
+#echo "net.ipv4.conf.default.rp_filter = 1" >> $SY_CF
+#echo "net.ipv4.conf.all.rp_filter = 1" >> $SY_CF
+
+#Secure ICMP and ping 
+IC_CF=/etc/sysctl.conf
+#echo "net.ipv4.conf.all.accept_redirects = 0" >> $SY_CF
+#echo "net.ipv4.conf.default.accept_redirects = 0" >> $SY_CF
+#echo "net.ipv4.conf.all.secure_redirects = 0" >> $SY_CF
+#echo "net.ipv4.conf.default.secure_redirects = 0" >> $SY_CF
+#echo "net.ipv6.conf.all.accept_redirects = 0" >> $SY_CF
+#echo "net.ipv6.conf.default.accept_redirects = 0" >> $SY_CF
+#echo "net.ipv4.conf.all.send_redirects = 0" >> $SY_CF
+#echo "net.ipv4.conf.default.send_redirects = 0" >> $SY_CF
+#echo "net.ipv4.icmp_echo_ignore_all = 1" >> $SY_CF
+#echo "net.ipv6.icmp.echo_ignore_all = 1" >> $SY_CF
+
+#IPTABLES secure from scaniing
+#TCP
+#iptables -I TCP -p tcp -m recent --update --rsource --seconds 60 --name TCP-PORTSCAN -j REJECT --reject-with tcp-reset
+#iptables -D INPUT -p tcp -j REJECT --reject-with tcp-reset
+#iptables -A INPUT -p tcp -m recent --set --rsource --name TCP-PORTSCAN -j REJECT --reject-with tcp-reset
+#UDP
+#iptables -I UDP -p udp -m recent --update --rsource --seconds 60 --name UDP-PORTSCAN -j REJECT --reject-with icmp-port-unreachable
+#iptables -D INPUT -p udp -j REJECT --reject-with icmp-port-unreachable
+#iptables -A INPUT -p udp -m recent --set --rsource --name UDP-PORTSCAN -j REJECT --reject-with icmp-port-unreachable
+#iptables -D INPUT -j REJECT --reject-with icmp-proto-unreachable
+#iptables -A INPUT -j REJECT --reject-with icmp-proto-unreachable
+#BRUTFORCE 
+#iptables -N IN_SSH
+#iptables -N LOG_AND_DROP
+#iptables -A INPUT -p tcp --dport ssh -m conntrack --ctstate NEW -j IN_SSH
+#iptables -A IN_SSH -m recent --name sshbf --rttl --rcheck --hitcount 3 --seconds 10 -j LOG_AND_DROP
+#iptables -A IN_SSH -m recent --name sshbf --rttl --rcheck --hitcount 4 --seconds 1800 -j LOG_AND_DROP 
+#iptables -A IN_SSH -m recent --name sshbf --set -j ACCEPT
+#iptables -A LOG_AND_DROP -j LOG --log-prefix "iptables deny: " --log-level 7
+#iptables -A LOG_AND_DROP -j DROP
+#IPv6
+#ip6tables -A INPUT -p ipv6-icmp --icmpv6-type 128 -m conntrack --ctstate NEW -j ACCEPT
+#ip6tables -A INPUT -s fe80::/10 -p ipv6-icmp -j ACCEPT
+#ip6tables -t mangle -A PREROUTING -m rpfilter -j ACCEPT
+#ip6tables -t mangle -A PREROUTING -j DROP
+#SAVING
+#iptables-save -f /etc/iptables/iptables.rules
+#ip6tables-save -f /etc/iptables/ip6tables.rules
+
+#VM Secure
+#echo "vm.dirty_background_ratio = 1" >> $SY_CF
+#vm.vfs_cache_pressure = 50
+#vm.dirty_background_bytes = 4194304
+#vm.dirty_bytes = 4194304
 
 #SYSCTL dinamic core settings
 sysctl --load=/etc/sysctl.d/99-sysctl.conf
