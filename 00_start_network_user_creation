@@ -22,8 +22,8 @@ sudo rm -Rv /etc/iptables/*
 #INTERNET group users  
 G_IU=internet_users
 sudo groupadd $G_IU
-sudo usermod -a -G $G_IU $USER
-sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $GIU -j DROP" >> $IP_RU
+usermod -a -G $G_IU $USER
+sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $G_IU -j DROP" >> $IP_RU
 getent group $G_IU
 
 systemctl enable iptables
