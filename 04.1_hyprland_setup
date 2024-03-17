@@ -83,4 +83,13 @@ cd ~/HyprV4
 ./set_hyper
 HP_CG=~/HyprV2xdogen/hypr/hyprland.conf
 
+
+#LOCALE
+LG_CF=/etc/locale.gen
+> $LG_CF
+echo "en_US.UTF-8 UTF-8" >> $LG_CF
+echo "ru_RU.UTF-8 UTF-8" >> $LG_CF
+LC_CF=/etc/locale.conf
+
+
  
