@@ -1,5 +1,5 @@
 #Add user
-#  USER=epvre
+USER=epvre
 #  useradd -m -G root $USER
 #  passwd $USER
 #  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
@@ -16,14 +16,14 @@
 
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
-sudo rm -Rv /etc/iptables/*
+rm -Rv /etc/iptables/*
 > $IP_RU
 
 #INTERNET group users  
 G_IU=internet_users
-sudo groupadd $G_IU
-sudo usermod -a -G $G_IU $USER
-sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $G_IU -j DROP" >> $IP_RU
+groupadd $G_IU
+usermod -a -G $G_IU $USER
+echo "iptables -A OUTPUT -m owner ! --gid-owner $G_IU -j DROP" >> $IP_RU
 getent group $G_IU
 groups
 
