@@ -18,44 +18,19 @@
 
 
 #IPTABLES
-IP_R=/etc/iptables/iptables.rules
+IP_RU=/etc/iptables/iptables.rules
 sudo rm -Rv /etc/iptables/*
-sudo touch $IP_R
-systemctl enable iptables
-
-#INTERNET group users  
-sudo groupadd internet_users
-sudo usermod -a -G internet_users $USER
-sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $GIU -j DROP" >> $IP_RU
-
-#Add user
-#  USER=epvre
-#  useradd -m -G root $USER
-#  passwd $USER
-#  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
-
-#USER=ioann
-#useradd $USER
-#passwd $USER
-#mkdir /home/$USER/bin
-#chown $USER /home/$USER/
-#chown -R $USER:$USER /home/$USER
-#chmod 700 /home/$USER
-#sudo chattr +i /path/to/folder/*
-
-
-#sudo chroot /home/$USER/ /bin/bash
-
-
-#IPTABLES
-sudo rm -Rv /etc/iptables/*
-systemctl enable iptables
+> $IP_RU
 
 #INTERNET group users  
 G_IU=internet_users
 sudo groupadd $G_IU
 sudo usermod -a -G $G_IU $USER
+sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $GIU -j DROP" >> $IP_RU
 getent group $G_IU
+
+systemctl enable iptables
+exit
 
 #SYSCTL dinamic core settings
 #sysctl --load=/etc/sysctl.d/99-sysctl.conf
