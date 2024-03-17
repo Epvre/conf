@@ -89,7 +89,10 @@ LG_CF=/etc/locale.gen
 > $LG_CF
 echo "en_US.UTF-8 UTF-8" >> $LG_CF
 echo "ru_RU.UTF-8 UTF-8" >> $LG_CF
+
 LC_CF=/etc/locale.conf
+> $LC_CF
+echo "LANG=en_US.UTF-8" >> $LC_CF
 
-
- 
+export LANG=en_US.UTF-8
+locale 
