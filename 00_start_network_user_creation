@@ -20,7 +20,7 @@
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
 sudo rm -Rv /etc/iptables/*
-> $IP_RU
+sudo touch $IP_RU
 systemctl enable iptables
 
 #INTERNET group users  
