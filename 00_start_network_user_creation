@@ -58,8 +58,8 @@ sudo usermod -a -G $G_IU $USER
 getent group $G_IU
 
 #SYSCTL dinamic core settings
-sysctl --load=/etc/sysctl.d/99-sysctl.conf
-SY_CF=/etc/sysctl.d/99-sysctl.conf
+#sysctl --load=/etc/sysctl.d/99-sysctl.conf
+#SY_CF=/etc/sysctl.d/99-sysctl.conf
 
 #Secure net pacages wait
 #echo "net.core.netdev_max_backlog = 16384" >> $SY_CF
