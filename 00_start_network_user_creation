@@ -14,7 +14,6 @@
 #sudo chattr +i /path/to/folder/*
 #sudo chroot /home/$USER/ /bin/bash
 
-
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
 sudo rm -Rv /etc/iptables/*
