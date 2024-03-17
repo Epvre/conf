@@ -26,7 +26,7 @@ systemctl enable iptables
 #INTERNET group users  
 sudo groupadd internet_users
 sudo usermod -a -G internet_users $USER
-echo "iptables -A OUTPUT -m owner ! --gid-owner $GIU -j DROP" >> $IP_RU
+sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $GIU -j DROP" >> $IP_RU
 
 #Add user
 #  USER=epvre
