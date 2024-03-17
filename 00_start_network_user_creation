@@ -1,37 +1,26 @@
 #Add user
-  USER=epvre
-  useradd -m -G root $USER
-  passwd $USER
-  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
+#  USER=epvre
+#  useradd -m -G root $USER
+#  passwd $USER
+#  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
 
-USER=ioann
-useradd $USER
-asswd $USER
-mkdir /home/$USER/bin
-chown $USER /home/$USER/
-chown -R $USER:$USER /home/$USER
-chmod 700 /home/$USER
-sudo chattr +i /path/to/folder/*
-
-
-sudo chroot /home/$USER/ /bin/bash
+#USER=ioann
+#useradd $USER
+#passwd $USER
+#mkdir /home/$USER/bin
+#chown $USER /home/$USER/
+#chown -R $USER:$USER /home/$USER
+#chmod 700 /home/$USER
+#sudo chattr +i /path/to/folder/*
 
 
-PROXY
-IPTABLES
-#rm -Rv  ~/.bash_history
+#sudo chroot /home/$USER/ /bin/bash
 
 
-bash 2_1_users_creation_politics
-bash 2_1_1_user_creation
-bash 2_2_internet_politics
-bash 2_3_local_politics
-bash 2_4_disk_enckrypt 
-/etc/default/grub
-/etc/default/grub
-https://wiki.archlinux.org/title/GRUB#Generate_the_main_configuration_file
-GRUB_ENABLE_CRYPTODISK=y
-bash 2_5
+#IPTABLES
+rm -Rv /etc/iptables/*
+systemctl enable iptables
+
 
 #SYSCTL dinamic core settings
 sysctl --load=/etc/sysctl.d/99-sysctl.conf
