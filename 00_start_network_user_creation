@@ -25,6 +25,7 @@ sudo groupadd $G_IU
 sudo usermod -a -G $G_IU $USER
 sudo echo "iptables -A OUTPUT -m owner ! --gid-owner $G_IU -j DROP" >> $IP_RU
 getent group $G_IU
+groups
 
 systemctl enable iptables
 exit
