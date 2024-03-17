@@ -18,12 +18,16 @@
 
 
 #IPTABLES
+IP_RU=/etc/iptables/iptables.rules
 sudo rm -Rv /etc/iptables/*
+> $IP_RU
 systemctl enable iptables
 
 #INTERNET group users  
 sudo groupadd internet_users
 sudo usermod -a -G internet_users $USER
+echo "iptables -A OUTPUT -m owner ! --gid-owner $GIU -j DROP" >> $IP_RU
+
 #Add user
 #  USER=epvre
 #  useradd -m -G root $USER
