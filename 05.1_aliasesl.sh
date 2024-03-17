@@ -9,3 +9,8 @@ PS1='\u@\h \W]\$ '
 
 eval "$(starship init bash)"
 " >> $A_CF
+
+rm -Rv  ~/.bash_history
+
+
+
