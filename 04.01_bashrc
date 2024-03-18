@@ -33,7 +33,7 @@ for USERN in $USERS; do
         ln -sf $BASHRC /home/$USER/.bashrc
         chown $USER:$USER /home/$USER/.bashrc
         chmod +x /home/$USER/.bashrc
-done
+        done
 
 # info
 # echo "All users now have a symbolic link to the common .bashrc file"
