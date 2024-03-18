@@ -4,9 +4,7 @@
 
 #Add user
 USER=epvre
-usermod -m -G  $USER
-#  passwd $USER
-#  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
+usermod -m -G internet,package,$USER $USER
 
 #USER=ioann
 #useradd $USER
