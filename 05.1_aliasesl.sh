@@ -1,5 +1,5 @@
 #!/bin/bash
-A_CF=~/.bashrc
+A_CF=/etc/bash.bashrc
 > $A_CF
 
 echo "
