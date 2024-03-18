@@ -1,6 +1,10 @@
+#Master              Internet and package management
+#Multimedia          Internet and multimedia
+#Experemental        Jail
+
 #Add user
 USER=epvre
-#  useradd -m -G root $USER
+usermod -m -G  $USER
 #  passwd $USER
 #  sed -iv 's/# %wheel ALL=(ALL:ALL) ALL/%root ALL=(ALL:ALL) ALL/g' /etc/sudoers
 
