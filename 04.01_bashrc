@@ -38,5 +38,5 @@ for USER in $USERS; do
         chown $USER:$USER "/home/$USER/.bashrc"
         chmod +x "/home/$USER/.bashrc"
 done
-echo "All users now have a symbolic link to the common .bashrc file."
+echo "All users now have a symbolic link to the common .bashrc file"
 
