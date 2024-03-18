@@ -36,5 +36,5 @@ for USERN in $USERS; do
 done
 
 # info
-echo "All users now have a symbolic link to the common .bashrc file"
+# echo "All users now have a symbolic link to the common .bashrc file"
 
