@@ -9,7 +9,7 @@ BASHRC=/etc/bash.bashrc
   
   [[ $DISPLAY ]] && shopt -s checkwinsize
   
-  alias ls='ls -lah --color=auto'
+  alias ls='ls --color=auto'
   alias grep='grep --color=auto'
   PS1='\u@\h \W]\$ '
   
@@ -18,17 +18,16 @@ BASHRC=/etc/bash.bashrc
       PROMPT_COMMAND+=('printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${P>
       ;;
   esac
-  
   if [[ -r /usr/share/bash-completion/bash_completion ]]; then
     . /usr/share/bash-completion/bash_completion
   fi
   
   eval "$(starship init bash)"
   export EDITOR=nano
-  " >> $BASHRC
-  chmod +x BASHRC
+  " > $BASHRC
+  chmod +x $BASHRC
 
- # Get a list of all users in /home
+# Get a list of all users in /home
 USERS=$(ls /home)
 # Loop through each user
 for USER in $USERS; do
