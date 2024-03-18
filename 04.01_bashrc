@@ -22,19 +22,18 @@ BASHRC=/etc/bash.bashrc
     . /usr/share/bash-completion/bash_completion
   fi
   
-  eval "$(starship init bash)"
+  eval $(starship init bash)
   export EDITOR=nano
   " > $BASHRC
   chmod +x $BASHRC
 
 # Get a list of all users in /home
 USERS=$(ls /home)
-for USER in $USERS; do
-    # Remove the user's exiting .bashrc file
-    rm -Rv "/home/$USER/.bashrc"
-        ln -sf $BASHRC "/home/$USER/.bashrc"
-        chown $USER:$USER "/home/$USER/.bashrc"
-        chmod +x "/home/$USER/.bashrc"
+for USERN in $USERS; do
+        rm -Rv /home/$USER/.bashrc
+        ln -sf $BASHRC /home/$USER/.bashrc
+        chown $USER:$USER /home/$USER/.bashrc
+        chmod +x /home/$USER/.bashrc
 done
 
 # info
