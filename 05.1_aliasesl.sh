@@ -2,8 +2,8 @@ port#!/bin/bash
 pacman -S --noconfirm --needed nano
 pacman -S --noconfirm --needed nano-syntax-highlighting
 
-A_CF=/etc/bash.bashrc
-> $A_CF
+BASHRC=/etc/bash.bashrc
+> $BASHRC
 
 echo "
 [[ $- != *i* ]] && return
@@ -31,6 +31,19 @@ fi
 
 eval "$(starship init bash)"
 export EDITOR=nano
-" >> $A_CF
+" >> $BASHRC
+chmod +x BASHRC
 
+ # Get a list of all users in /home
+USERS=$(ls /home)
+# Loop through each user
+for USER in $USERS; do
+    # Remove the user's exiting .bashrc file
+    rm -Rv "/home/$USER/.bashrc"
+        ln -sf $BASHRC "/home/$USER/.bashrc"
+        chown $USER:$USER "/home/$USER/.bashrc"
+        chmod +x "/home/$USER/.bashrc"
+done
+echo "All users now have a symbolic link to the common .bashrc file."
+```
 
