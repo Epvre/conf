@@ -14,7 +14,7 @@ BASHRC=/etc/bash.bashrc
   
   case ${TERM} in
     Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>
-      PROMPT_COMMAND+=('printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${P>
+      PROMPT_COMMAND+=(printf \033_%s@%s:%s\033\\ ${USER} ${HOSTNAME%%.*} ${P>
       ;;
   esac
   if [[ -r /usr/share/bash-completion/bash_completion ]]; then
