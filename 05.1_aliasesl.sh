@@ -1,4 +1,4 @@
-#!/bin/bash
+port#!/bin/bash
 A_CF=/etc/bash.bashrc
 > $A_CF
 
@@ -27,7 +27,7 @@ fi
 
 
 eval "$(starship init bash)"
-EDITOR=nano
+export EDITOR=nano
 " >> $A_CF
 
 rm -Rv  ~/.bash_history
