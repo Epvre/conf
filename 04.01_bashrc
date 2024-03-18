@@ -6,7 +6,6 @@ BASHRC=/etc/bash.bashrc
 > $BASHRC
   echo "
   [[ $- != *i* ]] && return
-  
   [[ $DISPLAY ]] && shopt -s checkwinsize
   
   alias ls='ls --color=auto'
@@ -30,7 +29,6 @@ BASHRC=/etc/bash.bashrc
 
 # Get a list of all users in /home
 USERS=$(ls /home)
-# Loop through each user
 for USER in $USERS; do
     # Remove the user's exiting .bashrc file
     rm -Rv "/home/$USER/.bashrc"
@@ -38,5 +36,7 @@ for USER in $USERS; do
         chown $USER:$USER "/home/$USER/.bashrc"
         chmod +x "/home/$USER/.bashrc"
 done
+
+# info
 echo "All users now have a symbolic link to the common .bashrc file"
 
