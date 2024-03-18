@@ -1,4 +1,4 @@
-port#!/bin/bash
+#!/bin/bash
 pacman -S --noconfirm --needed nano
 pacman -S --noconfirm --needed nano-syntax-highlighting
 
