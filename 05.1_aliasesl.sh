@@ -1,4 +1,7 @@
 port#!/bin/bash
+pacman -S --noconfirm --needed nano
+pacman -S --noconfirm --needed nano-syntax-highlighting
+
 A_CF=/etc/bash.bashrc
 > $A_CF
 
@@ -29,8 +32,5 @@ fi
 eval "$(starship init bash)"
 export EDITOR=nano
 " >> $A_CF
-
-rm -Rv  ~/.bash_history
-
 
 
