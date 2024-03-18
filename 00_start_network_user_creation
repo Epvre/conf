@@ -2,6 +2,9 @@
 #Multimedia          Internet and multimedia
 #Experemental        Zero
 
+#Add groups
+
+
 #Add user
 USER=epvre
 usermod -m -G internet,package,$USER $USER
