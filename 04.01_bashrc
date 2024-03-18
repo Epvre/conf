@@ -15,9 +15,6 @@ BASHRC=/etc/bash.bashrc
   
   case ${TERM} in
     Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>
-      PROMPT_COMMAND+=('printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${P>
-      ;;
-    screen*)
       PROMPT_COMMAND+=('printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${P>
       ;;
   esac
