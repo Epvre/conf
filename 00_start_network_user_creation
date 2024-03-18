@@ -1,6 +1,6 @@
 #Master              Internet and package management
 #Multimedia          Internet and multimedia
-#Experemental        Jail
+#Experemental        Zero
 
 #Add user
 USER=epvre
