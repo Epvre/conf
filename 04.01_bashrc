@@ -40,4 +40,4 @@ for USER in $USERS; do
         chown $USER:$USER /home/$USER/.bashrc
         chmod +x /home/$USER/.bashrc
         done
- 
+ ech "All .bashrc files updates"
