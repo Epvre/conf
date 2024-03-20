@@ -3,31 +3,32 @@ pacman -S --noconfirm --needed nano
 pacman -S --noconfirm --needed nano-syntax-highlighting
 
 BASHRC=/etc/bash.bashrc
-  echo " [[ $- != *i* ]] && return
-  [[ $DISPLAY ]] && shopt -s checkwinsize
+> $BASHRC
+  echo " [[ $- != *i* ]] && return" >> $BASHRC
+  echo "[[ $DISPLAY ]] && shopt -s checkwinsize" >> $BASHRC
   
-  alias ls=ls --color=auto
-  alias ls1=ls -lah --color=auto
-  alias grep=grep --color=auto
-  PS1=\u@\h \W]\$
+  echo "alias ls=ls --color=auto" >> $BASHRC
+  echo "alias ls1=ls -lah --color=auto" >> $BASHRC
+  echo "alias grep=grep --color=auto" >> $BASHRC
+  echo "PS1=\u@\h \W]\$" >> $BASHRC
   
-  case ${TERM} in
-    Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>
-      PROMPT_COMMAND+=(printf \033_%s@%s:%s\033\\ ${USER} ${HOSTNAME%%.*} ${P>
-      ;;
-  esac
-  if [[ -r /usr/share/bash-completion/bash_completion ]]; then
-    . /usr/share/bash-completion/bash_completion
-  fi
+  echo "case ${TERM} in" >> $BASHRC
+    echo "Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
+    echo "PROMPT_COMMAND+=(printf \033_%s@%s:%s\033\\ ${USER} ${HOSTNAME%%.*} ${P>" >> $BASHRC
+      echo";;" >> $BASHRC
+  echo "esac" >> $BASHRC
+  echo "if [[ -r /usr/share/bash-completion/bash_completion ]]; then" >> $BASHRC
+  echo  ". /usr/share/bash-completion/bash_completion" >> $BASHRC
+  echo "fi" >> $BASHRC
   
-  eval $(starship init bash)
-  export EDITOR=nano
-  " > $BASHRC
+  echo "eval $(starship init bash)" >> $BASHRC
+  echo "export EDITOR=nano: >> $BASHRC
+  
   chmod +x $BASHRC
 
 # Get a list of all users in /home
 USERS=$(ls /home)
-for USERN in $USERS; do
+for USER in $USERS; do
         rm -Rv /home/$USER/.bashrc
         ln -sf $BASHRC /home/$USER/.bashrc
         chown $USER:$USER /home/$USER/.bashrc
