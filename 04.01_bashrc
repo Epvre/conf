@@ -22,7 +22,7 @@ BASHRC=/etc/bash.bashrc
   echo "fi" >> $BASHRC
   
   echo "eval $(starship init bash)" >> $BASHRC
-  echo "export EDITOR=nano: >> $BASHRC
+  echo "export EDITOR=nano:" >> $BASHRC
   
   chmod +x $BASHRC
 
