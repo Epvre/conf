@@ -28,6 +28,7 @@ BASHRC=/etc/bash.bashrc
 
 # Get a list of all users in /home
 USERS=$(ls /home)
+USERS+=" root"
 for USER in $USERS; do
         rm -Rv /home/$USER/.bashrc
         ln -sf $BASHRC /home/$USER/.bashrc
