@@ -32,7 +32,6 @@ BASHRC=/etc/bash.bashrc
   ln -sf $BASHRC /root/.bashrc
   chown $USER:$USER /root/.bashrc
   chmod +x /root/.bashrc
-  done
 # Users
 USERS=$(ls /home)
 for USER in $USERS; do
