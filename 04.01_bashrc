@@ -15,7 +15,7 @@ BASHRC=/etc/bash.bashrc
   echo "case ${TERM} in" >> $BASHRC
     echo "Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
     echo "PROMPT_COMMAND+=(printf \033_%s@%s:%s\033\\ ${USER} ${HOSTNAME%%.*} ${P}>" >> $BASHRC
-      echo";;" >> $BASHRC
+  echo ";;" >> $BASHRC
   echo "esac" >> $BASHRC
   echo "if [[ -r /usr/share/bash-completion/bash_completion ]]; then" >> $BASHRC
   echo  ". /usr/share/bash-completion/bash_completion" >> $BASHRC
