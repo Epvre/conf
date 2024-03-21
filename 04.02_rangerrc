@@ -11,6 +11,7 @@ set preview_files true
 set preview_images true
 set preview_images_method kitty 
 set preview_syntax true
+set preview_auto_hide true
 
 set sort_by mtime
 set sort_by name
