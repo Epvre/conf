@@ -18,7 +18,8 @@ echo "
     Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
      
 #Nano  
-echo "export EDITOR=nano" >> $BASHRC
+echo "export EDITOR=nano
+EDITOR=nano" >> $BASHRC
 chmod +x $BASHRC
 
 # Get a list of all users in /home
