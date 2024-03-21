@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --noconfirm --needed ranger 
+pacman -S --noconfirm --needed ranger 
 
 R_CF=~/etc/rc.conf
 >$R_CF
