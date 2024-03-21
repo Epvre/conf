@@ -10,7 +10,7 @@ BASHRC=/etc/bash.bashrc
   echo "alias ls=ls --color=auto" >> $BASHRC
   echo "alias ls1=ls -lah --color=auto" >> $BASHRC
   echo "alias grep=grep --color=auto" >> $BASHRC
-  echo "PS1=\u@\h \W]\$" >> $BASHRC
+  echo "PS1=[\u@\h \W]\$" >> $BASHRC
   
   echo "case ${TERM} in" >> $BASHRC
     echo "Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
@@ -22,7 +22,7 @@ BASHRC=/etc/bash.bashrc
   echo "fi" >> $BASHRC
   
   echo "eval $(starship init bash)" >> $BASHRC
-  echo "export EDITOR=nano:" >> $BASHRC
+  echo "export EDITOR=nano" >> $BASHRC
   
   chmod +x $BASHRC
 
