@@ -1,0 +1,55 @@
+#!/bin/bash
+
+N_CF=/etc/nanorc
+>$N_CF
+echo "
+set linenumbers 
+set trimblanks 
+set tabsize 4 
+set tabstospaces 
+set autoindent 
+set constantshow
+set suspend
+set minibar
+set indicator
+
+set zap
+set regexp
+set bookstyle
+set breaklonglines
+set cutfromcursor
+set magic
+set noconert
+set smarthome
+set softwrap
+set wordbounds
+
+bind ^C copy main 
+bind ^V paste all
+bind ^F whereis all
+bind ^S savefile main
+
+#bind ^c copytext main
+#bind ^x cut main
+#bind ^v uncut main
+#bind ^z undo main
+#bind ^y redo main
+#bind ^f whereis main
+#bind F3 findnext main
+#bind ^h replace main
+
+set functioncolor normal,normal
+set errorcolor brightwhite,red
+set selectedcolor black,white 
+set stripecolor black,white
+set statuscolor black,white
+set mouse
+
+set brackets ""')>]}///"
+set matchbrackets "(<[{)>]}" 
+set punct "!.?" 
+set speller "aspell -x -c"  
+
+ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' 
+ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' 
+ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' 
