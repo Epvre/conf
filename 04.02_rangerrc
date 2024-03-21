@@ -29,7 +29,7 @@ set autosave_bookmarks true
 set mouse_enabled true
 
 map DD shell mv %s /home/${USER}/.local/share/Trash/files/
-map <Return> shell nano %s
+#map <Return> shell nano %s
 
 " >> $R_CF
 
