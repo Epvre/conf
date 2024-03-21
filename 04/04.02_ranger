@@ -1,0 +1,50 @@
+#!/bin/bash
+
+sudo pacman -S --noconfirm --needed ranger 
+
+ 
+R_CF=~/etc/rc.conf
+>$R_CF
+echo "
+set editor nano
+set show_hidden true
+set show_size true
+set preview_files true
+set preview_images true
+set preview_images_method kitty 
+set preview_syntax true
+
+set sort_by mtime
+set sort_by name
+set column_ratios 40
+set automatically_count_files true
+set draw_progress_bar_in_status_bar true
+set display_size_in_main_column true
+set display_size_in_status_bar true
+set display_free_space_in_status_bar true
+
+set vcs_backend_git enabled
+set max_history_size 0
+set max_console_history_size 0
+set autosave_bookmarks true
+set mouse_enabled true
+
+map DD shell mv %s /home/${USER}/.local/share/Trash/files/
+
+" >> $R_CF
+
+# Get a list of all users in /home
+# Root        
+  rm -Rv /root/.config/ranger/rc.conf
+  ln -sf $R_CF /root/.config/ranger/rc.conf
+  chown $USER:$USER /.config/ranger/rc.conf
+  chmod +x /.config/ranger/rc.conf
+# Users
+USERS=$(ls /home)
+for USER in $USERS; do
+        rm -Rv /home/$USER/.config/ranger/rc.conf
+        ln -sf $R_CF /home/$USER/.config/ranger/rc.conf
+        chown $USER:$USER /home/$USER/.config/ranger/rc.conf
+        chmod +x /home/$USER/.config/ranger/rc.conf
+        done
+ echo "Ranger RC files updates"
