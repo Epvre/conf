@@ -2,7 +2,6 @@
 
 sudo pacman -S --noconfirm --needed ranger 
 
- 
 R_CF=~/etc/rc.conf
 >$R_CF
 echo "
