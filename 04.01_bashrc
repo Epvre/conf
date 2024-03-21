@@ -4,27 +4,22 @@ pacman -S --noconfirm --needed nano-syntax-highlighting
 
 BASHRC=/etc/bash.bashrc
 > $BASHRC
-  echo " [[ $- != *i* ]] && return" >> $BASHRC
-  echo "[[ $DISPLAY ]] && shopt -s checkwinsize" >> $BASHRC
-  
-  echo "alias ls=ls --color=auto" >> $BASHRC
-  echo "alias ls1=ls -lah --color=auto" >> $BASHRC
-  echo "alias grep=grep --color=auto" >> $BASHRC
-  echo "PS1=[\u@\h \W]\$" >> $BASHRC
-  
-  echo "case ${TERM} in" >> $BASHRC
-    echo "Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
-    echo "PROMPT_COMMAND+=(printf \033_%s@%s:%s\033\\ ${USER} ${HOSTNAME%%.*} ${P}>" >> $BASHRC
-  echo ";;" >> $BASHRC
-  echo "esac" >> $BASHRC
-  echo "if [[ -r /usr/share/bash-completion/bash_completion ]]; then" >> $BASHRC
-  echo  ". /usr/share/bash-completion/bash_completion" >> $BASHRC
-  echo "fi" >> $BASHRC
-  
-  echo "eval $(starship init bash)" >> $BASHRC
-  echo "export EDITOR=nano" >> $BASHRC
-  
-  chmod +x $BASHRC
+
+#Aliases
+echo " 
+alias ls=ls --color=auto
+alias ls1=ls -lah --color=auto
+alias grep=grep --color=auto
+PS1=[\u@\h \W]\$" >> $BASHRC
+
+#Term
+echo "
+    case ${TERM} in
+    Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
+    ">>$BASHRC
+#Nano  
+echo "export EDITOR=nano" >> $BASHRC
+chmod +x $BASHRC
 
 # Get a list of all users in /home
 # Root        
