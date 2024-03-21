@@ -10,7 +10,7 @@ echo "
 alias ls=ls --color=auto
 alias ls1=ls -lah --color=auto
 alias grep=grep --color=auto
-PS1=[\u@\h \W]\$ " >> $BASHRC
+PS1='\u@\h \W]\$' " >> $BASHRC
 
 #Term
 echo "
