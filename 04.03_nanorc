@@ -2,7 +2,7 @@
 
 N_CF=/etc/nanorc
 
-echo " #!/bin/bash
+echo "
 set linenumbers 
 set trimblanks 
 set tabsize 4 
@@ -28,11 +28,13 @@ bind ^C copy main
 bind ^V paste all
 bind ^F whereis all
 bind ^S savefile main
+bind ^Z undo main
+bind ^Y redo main
 
 #bind ^c copytext main
 #bind ^x cut main
 #bind ^v uncut main
-#bind ^z undo main
+
 #bind ^y redo main
 #bind ^f whereis main
 #bind F3 findnext main
@@ -45,10 +47,9 @@ set stripecolor black,white
 set statuscolor black,white
 set mouse
 
-#set brackets ""')>]}///"
-set matchbrackets '(<[{)>]}'
-set punct '!.?' 
-set speller 'aspell -x -c'  
+set matchbrackets (<[{)>]}
+set punct !.? 
+set speller aspell -x -c  
 
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' 
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' 
