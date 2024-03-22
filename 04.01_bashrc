@@ -3,7 +3,7 @@ pacman -S --noconfirm --needed nano
 pacman -S --noconfirm --needed nano-syntax-highlighting
 
 BASHRC=/etc/bash.bashrc
-> $BASHRC
+ rm -Rv $BASHRC
 
 #Aliases
 echo " #!/bin/bash
