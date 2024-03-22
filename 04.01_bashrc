@@ -4,7 +4,7 @@ pacman -S --noconfirm --needed nano-syntax-highlighting
 
 BASHRC=/etc/bash.bashrc
 rm -Rv $BASHRC
-chown root:root $BASHRC
+
 #Aliases
 echo " #!/bin/bash
 alias ls='ls --color=auto'
@@ -21,6 +21,7 @@ echo "
 echo "export EDITOR='nano'
 EDITOR='nano'" >> $BASHRC
 chmod +x $BASHRC
+chown root:root $BASHRC
 
 # Get a list of all users in /home
 # Root        
