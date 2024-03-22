@@ -59,12 +59,12 @@ ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//'
 
 # Get a list of all users in /home
 # Root        
-  rm -Rv /root/nano/nanorc
+  rm -Rv /root/.config/nano/nanorc
   
 # Users
 USERS=$(ls /home)
 for USER in $USERS; do
-        rm -Rv /home/$USER/nano/nanorc
+        rm -Rv /home/$USER/.config/nano/nanorc
      
         done
  echo "Nano RC files updates"
