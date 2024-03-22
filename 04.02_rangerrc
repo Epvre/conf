@@ -2,7 +2,7 @@
 pacman -S --noconfirm --needed ranger 
 
 R_CF=/etc/ranger/rc.conf
-rm -Rv $R_CF
+mkdir -p /etc/ranger/ 
 echo "
 set editor nano
 set show_hidden true
