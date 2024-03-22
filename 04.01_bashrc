@@ -25,14 +25,14 @@ chmod +x $BASHRC
 # Get a list of all users in /home
 # Root        
   rm -Rv /root/.bashrc
-  ln -sf $BASHRC /root/.bashrc
+  ln -sf  /root/.bashrc $BASHRC
   chown root:root /root/.bashrc
   chmod +x /root/.bashrc
 # Users
 USERS=$(ls /home)
 for USER in $USERS; do
         rm -Rv /home/$USER/.bashrc
-        ln -sf $BASHRC /home/$USER/.bashrc
+        ln -sf  /home/$USER/.bashrc $BASHRC
         chown $USER:$USER /home/$USER/.bashrc
         chmod +x /home/$USER/.bashrc
         done
