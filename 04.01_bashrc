@@ -16,16 +16,18 @@ alias grep='grep --color=auto'
 set_color() {
     if [ "$(id -u)" -eq 0 ]; then
         # Root user
-        echo -e "\[\e[31m\]" 
+        echo -e "\[\e[31m\]" # Red
     else
         # Non-root user
-        echo -e "\[\e[32m\]"  
+        echo -e "\[\e[32m\]" # Green
     fi
 }
 # Function to set color based on directory
 set_dir_color() {
     if [ -d "$(pwd)" ]; then
-        echo -e "\[\e[34m\]"  
+        echo -e "\[\e[34m\]" # Blue
+    else
+        echo -e "\[\e[0m\]" # Reset color
     fi
 }
  
