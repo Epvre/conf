@@ -26,7 +26,7 @@ chmod +x $BASHRC
 # Root        
   rm -Rv /root/.bashrc
   ln -sf $BASHRC /root/.bashrc
-  chown $USER:$USER /root/.bashrc
+  chown root:root /root/.bashrc
   chmod +x /root/.bashrc
 # Users
 USERS=$(ls /home)
