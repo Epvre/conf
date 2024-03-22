@@ -16,19 +16,19 @@ alias grep='grep --color=auto'
 set_color() {
     if [ "$(id -u)" -eq 0 ]; then
         # Root user
-        echo -e "\[\e[31m\]" # Red
+        echo -e "\[\e[31m\]" 
     else
         # Non-root user
-        echo -e "\[\e[32m\]" # Green
+        echo -e "\[\e[32m\]"  
     fi
 }
 # Function to set color based on directory
 set_dir_color() {
     if [ -d "$(pwd)" ]; then
-        echo -e "\[\e[34m\]" # Blue
+        echo -e "\[\e[34m\]"  
     fi
 }
-# Set PS1
+ 
 PS1='$(set_color)$(set_dir_color)\u@\h \w \t\$ '
 " >> $BASHRC
 
