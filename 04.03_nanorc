@@ -53,7 +53,7 @@ set speller aspell -x -c
 
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' 
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' 
-#ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' 
+ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' 
 
 " > $N_CF
 
