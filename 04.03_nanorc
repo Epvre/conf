@@ -2,7 +2,7 @@
 
 N_CF=/etc/nanorc
 
-echo "
+echo " #!/bin/bash
 set linenumbers 
 set trimblanks 
 set tabsize 4 
@@ -52,7 +52,7 @@ set speller 'aspell -x -c'
 
 ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' 
 ls -1 /usr/share/nano/extra/*.nanorc | sed 's/^\//include \//' 
-ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' 
+#ls -1 /usr/share/nano-syntax-highlighting/*.nanorc | sed 's/^\//include \//' 
 
 " > $N_CF
 
