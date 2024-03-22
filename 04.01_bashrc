@@ -20,7 +20,7 @@ PS1='\u@\h \w \t\$ '
 echo "
     case ${TERM} in
     Eterm*|kitty*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|x>" >> $BASHRC
-     
+    PROMPT_COMMAND+=('printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"') 
 #Nano  
 echo "export EDITOR='nano'
 EDITOR='nano'" >> $BASHRC
