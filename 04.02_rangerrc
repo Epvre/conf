@@ -3,6 +3,7 @@ pacman -S --noconfirm --needed ranger
 
 R_CF=/etc/ranger/rc.conf
 mkdir -p /etc/ranger/ 
+
 echo "
 set editor nano
 set show_hidden true
@@ -31,7 +32,7 @@ set mouse_enabled true
 map DD shell mv %s /home/${USER}/.local/share/Trash/files/
 #map <Return> shell nano %s
 
-" >> $R_CF
+" > $R_CF
 
 # Get a list of all users in /home
 # Root        
