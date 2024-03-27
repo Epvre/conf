@@ -3,11 +3,12 @@
 #Experemental        Zero
 
 #Add groups
-
+groupadd internet
+groupadd package
 
 #Add user
 USER=epvre
-usermod -m -G internet,package,$USER $USER
+usermod -a -G internet,package,$USER $USER
 
 #USER=ioann
 #useradd $USER
