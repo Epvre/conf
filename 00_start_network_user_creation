@@ -10,26 +10,15 @@ groupadd package
 USER=epvre
 usermod -a -G internet,package,$USER $USER
 
-#USER=ioann
-#useradd $USER
-#passwd $USER
-#mkdir /home/$USER/bin
-#chown $USER /home/$USER/
-#chown -R $USER:$USER /home/$USER
-#chmod 700 /home/$USER
-#sudo chattr +i /path/to/folder/*
-#sudo chroot /home/$USER/ /bin/bash
-
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
 rm -Rv /etc/iptables/*
 > $IP_RU
-
 #INTERNET group users  
 echo "iptables -A OUTPUT -m owner ! --gid-owner internet -j DROP" >> $IP_RU
 su $USER
 getent group internet
-groups
+groups $USER
 
 systemctl enable iptables
 exit
