@@ -37,11 +37,11 @@ map DD shell mv %s /home/${USER}/.local/share/Trash/files/
 # Get a list of all users in /home
 # Root        
   rm -Rv /root/.config/ranger/rc.conf
-  
+  ln -sv $R_CF /root/.config/ranger/rc.conf
 # Users
 USERS=$(ls /home)
 for USER in $USERS; do
-        rm -Rv /home/$USER/.config/ranger/rc.conf
-     
+      rm -Rv /home/$USER/.config/ranger/rc.conf
+      ln -sv $R_CF /home/$USER/.config/ranger/rc.conf
         done
  echo "Ranger RC files updates"
