@@ -9,7 +9,7 @@ echo " #!/bin/bash
 alias ls='ls --color=auto'
 alias ls1='ls -lah --color=auto'
 alias grep='grep --color=auto'
-alias ranger='ranger --cmd='source /etc/ranger/rc.conf' '
+alias ranger='ranger --cmd="source /etc/ranger/rc.conf"'
 
 PS1='$(set_color)$(set_dir_color)\u@\h \w \t\$ '
 " >> $BASHRC
