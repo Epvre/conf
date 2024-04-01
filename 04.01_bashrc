@@ -31,6 +31,7 @@ chown root:root $BASHRC
  # Users
 USERS=$(ls /home)
 for USER in $USERS; do
-        rm -Rv /home/$USER/.bashrc
-        done
+    rm -Rv /home/$USER/.bashrc
+    ln -sv $BASHRC /home/$USER/.bashrc
+    done
  echo "All .bashrc files updates"
