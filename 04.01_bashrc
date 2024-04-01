@@ -26,7 +26,8 @@ chown root:root $BASHRC
 
 # Get a list of all users in /home
 # Root        
-  rm -Rv /root/.bashrc
+    rm -Rv /root/.bashrc
+    ln -sv $BASHRC /root/.bashrc
  # Users
 USERS=$(ls /home)
 for USER in $USERS; do
