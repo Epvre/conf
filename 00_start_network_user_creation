@@ -3,25 +3,21 @@
 #Experemental        Zero
 
 #Add groups
-groupadd internet
-groupadd package
+#groupadd internet
+#groupadd package
 
 #Add user
-USER=epvre
-usermod -a -G internet,package,$USER $USER
+#USER=epvre
+#usermod -a -G internet,package,$USER $USER
 
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
 rm -Rv /etc/iptables/*
 > $IP_RU
-#INTERNET group users  
-echo "iptables -A OUTPUT -m owner ! --gid-owner internet -j DROP" >> $IP_RU
-su $USER
-getent group internet
-groups $USER
-
 
 # Создание цепочки для пользователей из группы internet
+iptables -F
+iptables -X
 iptables -N ALLOW_INTERNET_USER
 iptables -A OUTPUT -m owner ! --gid-owner internet -j DROP
 iptables -A OUTPUT -m owner --gid-owner internet -j ALLOW_INTERNET_USER
@@ -31,9 +27,26 @@ iptables -A ALLOW_INTERNET_USER -o ! wlan0 -j DROP
 iptables -A ALLOW_INTERNET_USER -p tcp ! --dport 80 -m multiport ! --dports 8080 -j DROP
 iptables -A ALLOW_INTERNET_USER -m owner --command-owner firefox,pacman,telegram -j ACCEPT
 iptables -A ALLOW_INTERNET_USER -o wlan0 -p tcp -m multiport --dports 80,8080 -m owner --command-owner firefox,pacman,yay -j ACCEPT
+iptables-save > $IP_RU
 
-
-systemctl enable iptables
+IP_SE=/etc/systemd/system/iptables.service
+echo"
+     [Unit]
+     Description=Packet Filtering Framework
+     DefaultDependencies=no
+     After=network.target
+     [Service]
+     Type=oneshot
+     ExecStart=/usr/bin/iptables-restore /etc/iptables/iptables.rules
+     ExecReload=/usr/bin/iptables-restore /etc/iptables/iptables.rules
+     ExecStop=/usr/bin/iptables -F
+     RemainAfterExit=yes
+     [Install]
+     WantedBy=multi-user.target
+" > $IP_SE
+systemctl enable iptables.service
+systemctl start iptables.service
+iptables -L
 exit
 
 #SYSCTL dinamic core settings
