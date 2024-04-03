@@ -15,15 +15,27 @@ IP_RU=/etc/iptables/iptables.rules
 rm -Rv /etc/iptables/*
 > $IP_RU
 
-# Создание цепочки для пользователей из группы internet
-iptables -F
-iptables -X
-iptables -N ALLOW_INTERNET_USER
-iptables -A OUTPUT -m owner ! --gid-owner 1000 -j DROP
-iptables -A OUTPUT -m owner --gid-owner 1000 -j ALLOW_INTERNET_USER
+iptables -P INPUT DROP 
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
 
-# Правила для цепочки ALLOW_INTERNET_USER
-iptables -A ALLOW_INTERNET_USER -o ! wlan0 -j DROP
+iptables -N ALLOW_INTERNET_USER
+iptables -P ALLOW_INTERNET_USER DROP
+
+iptables -F
+iptables -t nat -F
+iptables -t mangle -F
+
+iptables -X
+iptables -t nat -X
+iptables -t mangle -X
+
+iptables -Z
+
+iptables -A OUTPUT -m owner --gid-owner 1000 -j ALLOW_INTERNET_USER
+iptables -A INPUT -m owner --gid-owner 1000 -j ALLOW_INTERNET_USER
+
+# RULES FOR CHAIN ALLOW_INTERNET_USER
 iptables -A ALLOW_INTERNET_USER -m owner --command-owner firefox,pacman,telegram -j ACCEPT
 iptables -A ALLOW_INTERNET_USER -o wlan0 -m owner --command-owner firefox,pacman,yay -j ACCEPT
 iptables-save > $IP_RU
