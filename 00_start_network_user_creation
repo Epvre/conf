@@ -20,6 +20,19 @@ su $USER
 getent group internet
 groups $USER
 
+
+# Создание цепочки для пользователей из группы internet
+iptables -N ALLOW_INTERNET_USER
+iptables -A OUTPUT -m owner ! --gid-owner internet -j DROP
+iptables -A OUTPUT -m owner --gid-owner internet -j ALLOW_INTERNET_USER
+
+# Правила для цепочки ALLOW_INTERNET_USER
+iptables -A ALLOW_INTERNET_USER -o ! wlan0 -j DROP
+iptables -A ALLOW_INTERNET_USER -p tcp ! --dport 80 -m multiport ! --dports 8080 -j DROP
+iptables -A ALLOW_INTERNET_USER -m owner --command-owner firefox,pacman,telegram -j ACCEPT
+iptables -A ALLOW_INTERNET_USER -o wlan0 -p tcp -m multiport --dports 80,8080 -m owner --command-owner firefox,pacman,yay -j ACCEPT
+
+
 systemctl enable iptables
 exit
 
