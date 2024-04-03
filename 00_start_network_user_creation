@@ -20,7 +20,7 @@ iptables -F
 iptables -X
 iptables -N ALLOW_INTERNET_USER
 iptables -A OUTPUT -m owner ! --gid-owner 1000 -j DROP
-iptables -A OUTPUT -m owner --gid-owner 1000 -j ACCEPT
+iptables -A OUTPUT -m owner --gid-owner 1000 -j ALLOW_INTERNET_USER
 
 # Правила для цепочки ALLOW_INTERNET_USER
 iptables -A ALLOW_INTERNET_USER -o ! wlan0 -j DROP
@@ -44,10 +44,10 @@ echo"
      WantedBy=multi-user.target
 " > $IP_SE
 
-systemctl daemon-reload
-systemctl enable iptables.service
-systemctl start iptables.service
-systemctl status iptables.service
+systemctl --verbose daemon-reload  
+systemctl --verbose enable iptables.service 
+systemctl --verbose start iptables.service 
+systemctl --verbose status iptables.service 
 iptables -L
 exit
 iptables -A ALLOW_INTERNET_USER -p tcp ! --dport 80 -m multiport ! --dports 8080 -j DROP
