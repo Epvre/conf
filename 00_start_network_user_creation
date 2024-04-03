@@ -20,7 +20,7 @@ iptables -F
 iptables -X
 iptables -N ALLOW_INTERNET_USER
 iptables -A OUTPUT -m owner ! --gid-owner internet -j DROP
-iptables -A OUTPUT -m owner --gid-owner internet -j ALLOW_INTERNET_USER
+iptables -A OUTPUT -m owner --gid-owner internet -j ACCEPT
 
 # Правила для цепочки ALLOW_INTERNET_USER
 iptables -A ALLOW_INTERNET_USER -o ! wlan0 -j DROP
