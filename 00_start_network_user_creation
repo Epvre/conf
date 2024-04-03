@@ -14,14 +14,7 @@
 IP_RU=/etc/iptables/iptables.rules
 rm -Rv /etc/iptables/*
 > $IP_RU
-
-iptables -P INPUT DROP 
-iptables -P OUTPUT DROP
-iptables -P FORWARD DROP
-
-iptables -N ALLOW_INTERNET_USER
-iptables -P ALLOW_INTERNET_USER DROP
-
+#CLEAR
 iptables -F
 iptables -t nat -F
 iptables -t mangle -F
@@ -32,12 +25,26 @@ iptables -t mangle -X
 
 iptables -Z
 
-iptables -A OUTPUT -m owner --gid-owner 1000 -j ALLOW_INTERNET_USER
-iptables -A INPUT -m owner --gid-owner 1000 -j ALLOW_INTERNET_USER
+#PREPARE
+iptables -P INPUT DROP 
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+iptables -N I_INTERNET_USER
+iptables -P I_INTERNET_USER DROP
+
+iptables -N O_INTERNET_USER
+iptables -P O_INTERNET_USER DROP
+
+#SORT
+iptables -A OUTPUT -m owner --gid-owner 1000 -j O_INTERNET_USER
+iptables -A INPUT -m owner --gid-owner 1000 -j I_INTERNET_USER
 
 # RULES FOR CHAIN ALLOW_INTERNET_USER
-iptables -A ALLOW_INTERNET_USER -m owner --command-owner firefox,pacman,telegram -j ACCEPT
-iptables -A ALLOW_INTERNET_USER -o wlan0 -m owner --command-owner firefox,pacman,yay -j ACCEPT
+PROGRAMS="firefox,pacman,yay"
+iptables -A O_INTERNET_USER -o wlan0 -m owner --command-owner $PROGRAMS -j ACCEPT
+iptables -A I_INTERNET_USER -i wlan0 -m owner --command-owner $PROGRAMS -m state --state RELATED,ESTABLISHED -j ACCEPT
+
 iptables-save > $IP_RU
 
 IP_SE=/etc/systemd/system/iptables.service
