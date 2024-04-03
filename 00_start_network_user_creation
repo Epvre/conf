@@ -19,8 +19,8 @@ rm -Rv /etc/iptables/*
 iptables -F
 iptables -X
 iptables -N ALLOW_INTERNET_USER
-iptables -A OUTPUT -m owner ! --gid-owner internet -j DROP
-iptables -A OUTPUT -m owner --gid-owner internet -j ACCEPT
+iptables -A OUTPUT -m owner ! --gid-owner 1000 -j DROP
+iptables -A OUTPUT -m owner --gid-owner 1000 -j ACCEPT
 
 # Правила для цепочки ALLOW_INTERNET_USER
 iptables -A ALLOW_INTERNET_USER -o ! wlan0 -j DROP
