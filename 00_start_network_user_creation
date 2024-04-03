@@ -43,8 +43,11 @@ echo"
      [Install]
      WantedBy=multi-user.target
 " > $IP_SE
+
+systemctl daemon-reload
 systemctl enable iptables.service
 systemctl start iptables.service
+systemctl status iptables.service
 iptables -L
 exit
 iptables -A ALLOW_INTERNET_USER -p tcp ! --dport 80 -m multiport ! --dports 8080 -j DROP
