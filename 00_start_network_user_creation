@@ -20,10 +20,24 @@ iptables -t mangle -X
 iptables -Z
 
 #INPUT
-iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
+iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
 
 #OUTPUT
 iptables -A OUTPUT -m owner --gid-owner 1000 -i wlan0 -j ACCEPT
+
+iptables -t mangle -I PREROUTING -m rpfilter --invert -j DROP
+
+#BRUTEFORCE DEF
+iptables -N IN_SSH
+iptables -N LOG_AND_DROP
+iptables -A INPUT -p tcp --dport ssh -m conntrack --ctstate NEW -j IN_SSH
+iptables -A IN_SSH -m recent --name sshbf --rttl --rcheck --hitcount 3 --seconds 10 -j LOG_AND_DROP
+iptables -A IN_SSH -m recent --name sshbf --rttl --rcheck --hitcount 4 --seconds 1800 -j LOG_AND_DROP 
+iptables -A IN_SSH -m recent --name sshbf --set -j ACCEPT
+iptables -A LOG_AND_DROP -j LOG --log-prefix "iptables deny: " --log-level 7
+iptables -A LOG_AND_DROP -j DROP
 
 iptables -P INPUT DROP 
 iptables -P OUTPUT DROP
