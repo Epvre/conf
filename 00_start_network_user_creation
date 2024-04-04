@@ -2,13 +2,7 @@
 #Multimedia          Internet and multimedia
 #Experemental        Zero
 
-#Add groups
-#groupadd internet
-#groupadd package
-
-#Add user
-#USER=epvre
-#usermod -a -G internet,package,$USER $USER
+ 
 
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
@@ -25,27 +19,15 @@ iptables -t mangle -X
 
 iptables -Z
 
-#PREPARE
+#INPUT
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+#OUTPUT
+iptables -A OUTPUT -m owner --gid-owner 1000 -i wlan0 -j ACCEPT
+
 iptables -P INPUT DROP 
 iptables -P OUTPUT DROP
 iptables -P FORWARD DROP
-
-iptables -N I_INTERNET_USER
-iptables -P I_INTERNET_USER DROP
-
-iptables -N O_INTERNET_USER
-iptables -P O_INTERNET_USER DROP
-
-#SORT
-iptables -A OUTPUT -m owner --uid-owner 1000 -j O_INTERNET_USER
-iptables -A INPUT -m owner --uid-owner 1000 -j I_INTERNET_USER
-
-# RULES FOR CHAIN ALLOW_INTERNET_USER
-iptables -A I_INTERNET_USER -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -A O_INTERNET_USER -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-
-#iptables -A O_INTERNET_USER -i wlan0 -j ACCEPT
-#iptables -A I_INTERNET_USER -i wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 iptables-save > $IP_RU
 
