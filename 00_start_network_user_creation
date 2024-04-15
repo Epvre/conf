@@ -2,8 +2,6 @@
 #Multimedia          Internet and multimedia
 #Experemental        Zero
 
- 
-
 #IPTABLES
 IP_RU=/etc/iptables/iptables.rules
 rm -Rv /etc/iptables/*
@@ -28,7 +26,6 @@ iptables -N LOG_AND_DROP
 
 #FILTER
 iptables -A INPUT -p tcp --dport 17500 -j REJECT --reject-with icmp-port-unreachable
-
 
 #INPUT
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
