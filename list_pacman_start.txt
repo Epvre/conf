@@ -2,7 +2,6 @@ nvidia
 nvidia-dkms
 nvidia-utils
 mesa
-qt5-wayland
 
 coreutils
 base-devel
