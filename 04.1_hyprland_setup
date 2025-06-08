@@ -2,7 +2,7 @@
 
 #INSTALL 
 cd ~/
-sudo git clone https://github.com/SolDocsTech/HyprV4.git
+sudo git clone https://github.com/SolDoesTech/HyprV4.git
 cd ~/HyprV4
 ./set_hyper
 HP_CG=~/HyprV2xdogen/hypr/hyprland.conf
